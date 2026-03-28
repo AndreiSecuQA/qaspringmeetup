@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QA Spring Meetup 2026 — 25 Aprilie, UTM</title>
+  <meta name="description" content="Evenimentul dedicat studenților, juniorilor și celor entuziasmați de QA și AI în testare. 25 Aprilie 2026, UTM Chișinău." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ─── Navbar ─── -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">QA</div>
+      <span class="nav-logo-text">QA <span>Meetup</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">Despre</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#speakers">Speakeri</a></li>
+      <li><a href="#topics">Teme</a></li>
+      <li><a href="#location">Locație</a></li>
+      <li><a href="register.html" class="nav-cta">Înregistrare</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">Spring Meetup 2026</div>
+        <h1 class="hero-title">
+          QA Moldova
+          <span class="accent">Spring Meetup</span>
+        </h1>
+        <p class="hero-subtitle">
+          Evenimentul dedicat studenților, juniorilor și profesioniștilor curioși despre QA, AI și industria tech din Moldova.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="icon">📅</div>
+            <div><strong>25 Aprilie 2026</strong>, ora 11:00 — 12:30</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="icon">📍</div>
+            <div><strong>UTM — Blocul 3 (FCIM)</strong>, Aula 3-3, Chișinău</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="icon">👥</div>
+            <div>Public: <strong>Studenți, Juniori, reconversie profesională</strong></div>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="register.html" class="btn btn-primary">
+            ✦ Înregistrează-te Gratuit
+          </a>
+          <a href="#agenda" class="btn btn-outline">
+            Vezi Agenda
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="countdown-label">⏳ Evenimentul începe în</div>
+        <div class="countdown" id="countdown">
+          <div class="countdown-item">
+            <span class="countdown-num" id="cd-days">--</span>
+            <div class="countdown-unit">Zile</div>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="cd-hours">--</span>
+            <div class="countdown-unit">Ore</div>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="cd-minutes">--</span>
+            <div class="countdown-unit">Min</div>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="cd-seconds">--</span>
+            <div class="countdown-unit">Sec</div>
+          </div>
+        </div>
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;">🔥 Locuri limitate — înregistrare gratuită</div>
+        <div class="hero-tags">
+          <span class="tag">🤖 AI în QA</span>
+          <span class="tag">💼 HR Panel</span>
+          <span class="tag">🛠️ Workshop</span>
+          <span class="tag">🌱 Carieră QA</span>
+          <span class="tag">🏦 Banking Tech</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── About ─── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">90</span>
+            <div class="stat-label">Minute de conținut</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">7+</span>
+            <div class="stat-label">Speakeri & Invitați</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">3</span>
+            <div class="stat-label">Companii reprezentate</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">0 lei</span>
+            <div class="stat-label">Intrare gratuită</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="section-label">Despre Eveniment</div>
+          <h2 class="section-title">Ce este <span class="accent">QA Spring Meetup</span>?</h2>
+          <p>
+            QA Spring Meetup este un eveniment comunitar organizat de <strong>QA Moldova</strong>, dedicat celor care vor să înțeleagă mai bine lumea testării software și rolul AI-ului în transformarea acestei industrii.
+          </p>
+          <p>
+            Vom reuni speakeri din companii de top, reprezentanți HR de la Amdaris, MAIB și MICB, și vom oferi un workshop practic pentru a te ajuta să faci primul pas în cariera QA.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>Panel cu HR din companii de top: Amdaris, MAIB, MICB</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>Prezentări despre QA în era AI și piața muncii actuale</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>Workshop practic cu tooling modern de testare</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>Oportunitate de networking cu profesioniști din industrie</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>Q&A interactiv cu toți speakerii la final</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Agenda ─── -->
+  <section class="agenda" id="agenda">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Program Eveniment</div>
+        <h2 class="section-title">Agenda <span class="accent">25 Aprilie</span></h2>
+        <p class="section-desc">90 de minute intense cu prezentări, panel discussion și workshop practic.</p>
+      </div>
+
+      <div class="agenda-timeline">
+
+        <div class="agenda-item">
+          <div class="agenda-time"><span>11:00 – 11:10</span></div>
+          <div class="agenda-card">
+            <div class="agenda-segment">Deschidere</div>
+            <div class="agenda-title">Intro: Comunitatea QA Moldova</div>
+            <div class="agenda-speakers">👥 Core Team QA Moldova</div>
+            <span class="agenda-format format-opening">Deschidere oficială</span>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-time"><span>11:10 – 11:30</span></div>
+          <div class="agenda-card">
+            <div class="agenda-segment">Prezentare</div>
+            <div class="agenda-title">QA în Era AI & Marketplace</div>
+            <div class="agenda-speakers">🎤 Oleg Druță (Endava) & Andrei Buzdugan</div>
+            <span class="agenda-format format-presentation">Prezentare</span>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-time"><span>11:30 – 12:00</span></div>
+          <div class="agenda-card">
+            <div class="agenda-segment">Panel Discussion</div>
+            <div class="agenda-title">Cariera QA: Internship & Angajare</div>
+            <div class="agenda-speakers">👔 Oleg Druță · Daniela Popovici (Amdaris) · CEO MAIB · Marianna Paladii HR (MICB)</div>
+            <span class="agenda-format format-panel">Panel Discussion</span>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-time"><span>12:00 – 12:20</span></div>
+          <div class="agenda-card">
+            <div class="agenda-segment">Mini-Workshop</div>
+            <div class="agenda-title">Skill-up: Demo Practic & Tooling Modern</div>
+            <div class="agenda-speakers">🛠️ Alex Ursu & Oleg Colodeev</div>
+            <span class="agenda-format format-workshop">Mini-Workshop</span>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-time"><span>12:20 – 12:30</span></div>
+          <div class="agenda-card">
+            <div class="agenda-segment">Interactiv</div>
+            <div class="agenda-title">Q&A și Închidere</div>
+            <div class="agenda-speakers">🎙️ Toți Speakerii</div>
+            <span class="agenda-format format-interactive">Q&A Interactiv</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Speakers ─── -->
+  <section class="speakers" id="speakers">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Invitați</div>
+        <h2 class="section-title">Meet the <span class="accent">Speakers</span></h2>
+        <p class="section-desc">Profesioniști din industrie gata să împartă din experiența lor reală.</p>
+      </div>
+
+      <div class="speakers-grid">
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">OD</div>
+          <div class="speaker-name">Oleg Druță</div>
+          <div class="speaker-role">QA Engineer / Speaker</div>
+          <div class="speaker-company">Endava</div>
+          <div class="speaker-topic">„QA în Era AI & Marketplace" — cum arată un internship la Endava și piața muncii actuale</div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">AB</div>
+          <div class="speaker-name">Andrei Buzdugan</div>
+          <div class="speaker-role">Speaker</div>
+          <div class="speaker-company">QA Moldova</div>
+          <div class="speaker-topic">Co-prezentator pe tema QA în era AI — tooling, perspective și tendințe</div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">DP</div>
+          <div class="speaker-name">Daniela Popovici</div>
+          <div class="speaker-role">HR Representative</div>
+          <div class="speaker-company">Amdaris</div>
+          <div class="speaker-topic">Panel HR: „Ce caută recrutorii în 2026 — skills, atitudine și cum să te diferențiezi"</div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">MP</div>
+          <div class="speaker-name">Marianna Paladii</div>
+          <div class="speaker-role">HR Manager</div>
+          <div class="speaker-company">MICB</div>
+          <div class="speaker-topic">Panel HR: specificul recrutării în sectorul bancar și ce înseamnă QA în banking</div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">🏦</div>
+          <div class="speaker-name">Reprezentant MAIB</div>
+          <div class="speaker-role">CEO / HR</div>
+          <div class="speaker-company">MAIB</div>
+          <div class="speaker-topic">Panel HR: perspectiva dinspre cea mai mare bancă din Moldova asupra recrutării tech</div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">AU</div>
+          <div class="speaker-name">Alex Ursu</div>
+          <div class="speaker-role">QA Engineer / Trainer</div>
+          <div class="speaker-company">QA Moldova</div>
+          <div class="speaker-topic">Workshop practic: demonstrații live cu tooling modern de testare</div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">OC</div>
+          <div class="speaker-name">Oleg Colodeev</div>
+          <div class="speaker-role">QA Engineer</div>
+          <div class="speaker-company">QA Moldova</div>
+          <div class="speaker-topic">Co-facilitator workshop — automation, prompt engineering în testare</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Topics ─── -->
+  <section class="topics" id="topics">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Teme Principale</div>
+        <h2 class="section-title">Ce vei <span class="accent">învăța</span></h2>
+        <p class="section-desc">Subiecte relevante pentru 2026, alese special pentru audiența noastră.</p>
+      </div>
+
+      <div class="topics-grid">
+        <div class="topic-card">
+          <div class="topic-icon">🤖</div>
+          <div class="topic-title">QA vs. AI</div>
+          <div class="topic-desc">Mai merită să înveți testare manuală? Cum se schimbă rolul testerului în era inteligenței artificiale.</div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">🎯</div>
+          <div class="topic-title">Supraviețuirea în Marketplace</div>
+          <div class="topic-desc">Cum te diferențiezi când sunt mulți candidați pe un singur loc de muncă. Strategii practice.</div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">🏢</div>
+          <div class="topic-title">De la UTM la Office</div>
+          <div class="topic-desc">Cum aplici în proiecte reale ceea ce înveți la facultate. Gap-ul teorie-practică și cum să-l depășești.</div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">🏦</div>
+          <div class="topic-title">Banking QA</div>
+          <div class="topic-desc">Specificul testării în mediul financiar-bancar. Ce e diferit și de ce e mai interesant decât crezi.</div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">💬</div>
+          <div class="topic-title">Prompt Engineering în QA</div>
+          <div class="topic-desc">Cum să folosești AI-ul în procesul de testare. Skill-uri practice de prompt engineering pentru testeri.</div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">🚀</div>
+          <div class="topic-title">Internship & Angajare</div>
+          <div class="topic-desc">Sfaturi directe de la HR-ul companiilor de top. Ce CV, ce atitudine, ce întrebări să pui la interviu.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Location ─── -->
+  <section class="location" id="location">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Locație</div>
+        <h2 class="section-title">Unde ne <span class="accent">întâlnim</span></h2>
+        <p class="section-desc">Evenimentul are loc în inima comunității studențești din Chișinău.</p>
+      </div>
+
+      <div class="location-grid">
+        <div class="location-card">
+          <div class="location-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2720.4!2d28.8572!3d47.0601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3628b769a1%3A0x399e55a89c7a9028!2sUniversitatea%20Tehnic%C4%83%20a%20Moldovei!5e0!3m2!1sro!2smd!4v1710000000000!5m2!1sro!2smd"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Harta UTM">
+            </iframe>
+          </div>
+          <div class="location-details">
+            <div class="location-name">Universitatea Tehnică a Moldovei</div>
+            <div class="location-address">Blocul 3 (FCIM) — Aula 3-3<br>bd. Ștefan cel Mare și Sfânt 168, Chișinău, MD-2004</div>
+          </div>
+        </div>
+
+        <div class="location-info">
+          <div class="location-info-item">
+            <div class="icon-box">🕚</div>
+            <div>
+              <h4>Data și Ora</h4>
+              <p>Sâmbătă, 25 Aprilie 2026<br>Ușile se deschid la 10:45, Start 11:00</p>
+            </div>
+          </div>
+          <div class="location-info-item">
+            <div class="icon-box">🏛️</div>
+            <div>
+              <h4>Sala</h4>
+              <p>Blocul 3 (FCIM), Aula 3-3<br>Intrare cu permis de acces — detalii după înregistrare</p>
+            </div>
+          </div>
+          <div class="location-info-item">
+            <div class="icon-box">📶</div>
+            <div>
+              <h4>Facilități</h4>
+              <p>Wi-Fi disponibil pentru workshop<br>Proiector + microfoane pentru panel</p>
+            </div>
+          </div>
+          <div class="location-info-item">
+            <div class="icon-box">🚇</div>
+            <div>
+              <h4>Transport</h4>
+              <p>Accesibil cu transportul public<br>Troleibuz: 3, 22 — stația UTM</p>
+            </div>
+          </div>
+          <div class="location-info-item">
+            <div class="icon-box">📋</div>
+            <div>
+              <h4>Intrare</h4>
+              <p>Gratuită, cu înregistrare prealabilă<br>Confirmare prin email după înregistrare</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta-section" id="register-cta">
+    <div class="container">
+      <h2>Ești gata să te <span class="accent">alături</span> nouă?</h2>
+      <p>Locurile sunt limitate. Înregistrează-te gratuit și asigură-ți locul la cel mai tare eveniment QA din Moldova.</p>
+      <a href="register.html" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">
+        ✦ Înregistrare Gratuită
+      </a>
+      <p class="cta-note">🔐 Nu necesită cont. Date confidențiale, nu trimitem spam.</p>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <div class="footer-content">
+      <a href="index.html" class="footer-logo">
+        <div class="nav-logo-icon" style="width:32px;height:32px;font-size:0.7rem;">QA</div>
+        <span>QA Moldova Community</span>
+      </a>
+      <div class="footer-links">
+        <a href="#about">Despre</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#speakers">Speakeri</a>
+        <a href="register.html">Înregistrare</a>
+      </div>
+      <div class="footer-copy">© 2026 QA Moldova · Empowering quality and innovation!</div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    function toggleMenu() {
+      const links = document.getElementById('nav-links');
+      links.classList.toggle('open');
+    }
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('nav-links').classList.remove('open');
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(10, 31, 46, 0.98)';
+      } else {
+        navbar.style.background = 'rgba(10, 31, 46, 0.92)';
+      }
+    });
+
+    // Countdown
+    function updateCountdown() {
+      const target = new Date('2026-04-25T11:00:00');
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '0';
+        document.getElementById('cd-hours').textContent = '0';
+        document.getElementById('cd-minutes').textContent = '0';
+        document.getElementById('cd-seconds').textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.stat-card, .speaker-card, .topic-card, .agenda-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
