@@ -1445,10 +1445,11 @@ footer {
 
 .speaker-photo-wrap {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 260px;
   overflow: hidden;
   position: relative;
   background: var(--teal-mid);
+  flex-shrink: 0;
 }
 
 .speaker-photo {
