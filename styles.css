@@ -1390,6 +1390,16 @@ footer {
     text-align: center;
   }
 
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .footer-logo {
+    font-size: 0.9rem;
+  }
+
   .hero-actions {
     flex-direction: column;
   }
@@ -1689,8 +1699,12 @@ footer {
 @media (max-width: 768px) {
   .speakers-grid--3 {
     grid-template-columns: 1fr;
-    max-width: 360px;
+    max-width: 400px;
     margin: 0 auto;
+  }
+
+  .speaker-photo-wrap {
+    height: 200px;
   }
 
   .panel-guests {
