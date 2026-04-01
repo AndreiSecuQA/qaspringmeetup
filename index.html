@@ -19,15 +19,20 @@
       <span class="nav-logo-text">QA <span>Meetup</span></span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about">Despre</a></li>
-      <li><a href="#agenda">Agenda</a></li>
-      <li><a href="#speakers">Speakeri</a></li>
-      <li><a href="#panel">Panel</a></li>
-      <li><a href="#location">Locație</a></li>
-      <li><a href="register.html" class="nav-cta">Înregistrare</a></li>
+      <li><a href="#about" data-i18n="nav_about">Despre</a></li>
+      <li><a href="#agenda" data-i18n="nav_agenda">Agenda</a></li>
+      <li><a href="#speakers" data-i18n="nav_speakers">Speakeri</a></li>
+      <li><a href="#panel" data-i18n="nav_panel">Panel</a></li>
+      <li><a href="#location" data-i18n="nav_location">Locație</a></li>
+      <li><a href="register.html" class="nav-cta" data-i18n="nav_register">Înregistrare</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
+    </div>
+    <div class="lang-switcher" id="lang-switcher">
+      <button class="lang-btn" data-lang="ro" onclick="setLang('ro')">RO</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
     </div>
   </nav>
 
@@ -40,66 +45,66 @@
 
     <div class="hero-content">
       <div class="hero-text">
-        <div class="hero-badge">Spring Meetup 2026</div>
+        <div class="hero-badge" data-i18n="hero_badge">Spring Meetup 2026</div>
         <h1 class="hero-title">
           QA Spring
           <span class="accent">Meetup</span>
         </h1>
-        <p class="hero-tagline">QA between expectations and reality:<br>the ideal candidate in 2026</p>
-        <p class="hero-subtitle">
+        <p class="hero-tagline" data-i18n-html="hero_tagline">QA between expectations and reality:<br>the ideal candidate in 2026</p>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
           Evenimentul dedicat studenților, juniorilor și profesioniștilor curioși despre QA, AI și industria tech din Moldova.
         </p>
         <div class="hero-meta">
           <div class="hero-meta-item">
             <div class="icon">📅</div>
-            <div><strong>25 Aprilie 2026</strong>, ora 11:00 — 12:30</div>
+            <div data-i18n-html="hero_date_full"><strong>25 Aprilie 2026</strong>, ora 11:00 — 12:30</div>
           </div>
           <div class="hero-meta-item">
             <div class="icon">📍</div>
-            <div><strong>UTM — Blocul 3 (FCIM)</strong>, Aula 3-3, Chișinău</div>
+            <div data-i18n-html="hero_location_full"><strong>UTM — Blocul 3 (FCIM)</strong>, Aula 3-3, Chișinău</div>
           </div>
           <div class="hero-meta-item">
             <div class="icon">👥</div>
-            <div>Public: <strong>Studenți, Juniori, reconversie profesională</strong></div>
+            <div data-i18n-html="hero_audience_full">Public: <strong>Studenți, Juniori, reconversie profesională</strong></div>
           </div>
         </div>
         <div class="hero-actions">
-          <a href="register.html" class="btn btn-primary">
+          <a href="register.html" class="btn btn-primary" data-i18n="hero_cta">
             ✦ Înregistrează-te Gratuit
           </a>
-          <a href="#agenda" class="btn btn-outline">
+          <a href="#agenda" class="btn btn-outline" data-i18n="hero_btn_agenda">
             Vezi Agenda
           </a>
         </div>
       </div>
 
       <div class="hero-card">
-        <div class="countdown-label">⏳ Evenimentul începe în</div>
+        <div class="countdown-label" data-i18n="countdown_label">⏳ Evenimentul începe în</div>
         <div class="countdown" id="countdown">
           <div class="countdown-item">
             <span class="countdown-num" id="cd-days">--</span>
-            <div class="countdown-unit">Zile</div>
+            <div class="countdown-unit" data-i18n="countdown_days">Zile</div>
           </div>
           <div class="countdown-item">
             <span class="countdown-num" id="cd-hours">--</span>
-            <div class="countdown-unit">Ore</div>
+            <div class="countdown-unit" data-i18n="countdown_hours">Ore</div>
           </div>
           <div class="countdown-item">
             <span class="countdown-num" id="cd-minutes">--</span>
-            <div class="countdown-unit">Min</div>
+            <div class="countdown-unit" data-i18n="countdown_min">Min</div>
           </div>
           <div class="countdown-item">
             <span class="countdown-num" id="cd-seconds">--</span>
-            <div class="countdown-unit">Sec</div>
+            <div class="countdown-unit" data-i18n="countdown_sec">Sec</div>
           </div>
         </div>
-        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;">🔥 Locuri limitate — înregistrare gratuită</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;" data-i18n="countdown_note">🔥 Locuri limitate — înregistrare gratuită</div>
         <div class="hero-tags">
-          <span class="tag">🤖 AI în QA</span>
-          <span class="tag">💼 Panel HR</span>
-          <span class="tag">🛠️ Workshop</span>
-          <span class="tag">🌱 Carieră QA</span>
-          <span class="tag">🏦 Fintech QA</span>
+          <span class="tag" data-i18n="tag_ai">🤖 AI în QA</span>
+          <span class="tag" data-i18n="tag_hr">💼 Panel HR</span>
+          <span class="tag" data-i18n="tag_workshop">🛠️ Workshop</span>
+          <span class="tag" data-i18n="tag_career">🌱 Carieră QA</span>
+          <span class="tag" data-i18n="tag_fintech">🏦 Fintech QA</span>
         </div>
       </div>
     </div>
@@ -112,50 +117,50 @@
         <div class="about-stats">
           <div class="stat-card">
             <span class="stat-num">90</span>
-            <div class="stat-label">Minute de conținut</div>
+            <div class="stat-label" data-i18n="stat_min_label">Minute de conținut</div>
           </div>
           <div class="stat-card">
             <span class="stat-num">3</span>
-            <div class="stat-label">Speakeri confirmați</div>
+            <div class="stat-label" data-i18n="stat_speakers_label">Speakeri confirmați</div>
           </div>
           <div class="stat-card">
             <span class="stat-num">4+</span>
-            <div class="stat-label">Invitați în Panel</div>
+            <div class="stat-label" data-i18n="stat_panel_label">Invitați în Panel</div>
           </div>
           <div class="stat-card">
             <span class="stat-num">0 lei</span>
-            <div class="stat-label">Intrare gratuită</div>
+            <div class="stat-label" data-i18n="stat_free_label">Intrare gratuită</div>
           </div>
         </div>
         <div class="about-text">
-          <div class="section-label">Despre Eveniment</div>
-          <h2 class="section-title">Ce este <span class="accent">QA Spring Meetup</span>?</h2>
-          <p>
+          <div class="section-label" data-i18n="about_section_label">Despre Eveniment</div>
+          <h2 class="section-title" data-i18n-html="about_title">Ce este <span class="accent">QA Spring Meetup</span>?</h2>
+          <p data-i18n-html="about_p1">
             QA Spring Meetup este un eveniment comunitar organizat de <strong>QA Moldova</strong>, dedicat celor care vor să înțeleagă mai bine lumea testării software — și mai ales ce înseamnă candidatul ideal în 2026.
           </p>
-          <p>
+          <p data-i18n-html="about_p2">
             Vom reuni speakeri din companii de top, un panel de discuții cu invitați din industrie, și un workshop practic pentru a-ți pune cunoștințele în aplicare.
           </p>
           <div class="about-highlights">
             <div class="highlight-item">
               <span class="check">✓</span>
-              <span>Prezentare: „The Quality Orchestrator" — Daniela Popov (Amdaris)</span>
+              <span data-i18n="h1">Prezentare: „The Quality Orchestrator" — Daniela Popov (Amdaris)</span>
             </div>
             <div class="highlight-item">
               <span class="check">✓</span>
-              <span>Panel de discuții cu 4 invitați din industrie</span>
+              <span data-i18n="h2">Panel de discuții cu 4 invitați din industrie</span>
             </div>
             <div class="highlight-item">
               <span class="check">✓</span>
-              <span>Prezentare: „QA in the Fintech World" — Maxim Anastasiev (MAIB)</span>
+              <span data-i18n="h3">Prezentare: „QA in the Fintech World" — Maxim Anastasiev (MAIB)</span>
             </div>
             <div class="highlight-item">
               <span class="check">✓</span>
-              <span>Workshop practic — Alex Ursu (Planable)</span>
+              <span data-i18n="h4">Workshop practic — Alex Ursu (Planable)</span>
             </div>
             <div class="highlight-item">
               <span class="check">✓</span>
-              <span>Networking cu profesioniști din industria tech din Moldova</span>
+              <span data-i18n="h5">Networking cu profesioniști din industria tech din Moldova</span>
             </div>
           </div>
         </div>
@@ -167,9 +172,9 @@
   <section class="agenda" id="agenda">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Program Eveniment</div>
-        <h2 class="section-title">Agenda <span class="accent">25 Aprilie</span></h2>
-        <p class="section-desc">90 de minute cu prezentări, panel discussion și workshop practic.</p>
+        <div class="section-label" data-i18n="agenda_label">Program Eveniment</div>
+        <h2 class="section-title" data-i18n-html="agenda_title">Agenda <span class="accent">25 Aprilie</span></h2>
+        <p class="section-desc" data-i18n="agenda_desc">90 de minute cu prezentări, panel discussion și workshop practic.</p>
       </div>
 
       <div class="agenda-timeline">
@@ -177,50 +182,50 @@
         <div class="agenda-item">
           <div class="agenda-time"><span>11:00 – 11:10</span></div>
           <div class="agenda-card">
-            <div class="agenda-segment">Deschidere</div>
-            <div class="agenda-title">Intro: Comunitatea QA Moldova</div>
-            <div class="agenda-speakers">👥 Core Team QA Moldova</div>
-            <span class="agenda-format format-opening">Deschidere oficială</span>
+            <div class="agenda-segment" data-i18n="agenda_seg_1">Deschidere</div>
+            <div class="agenda-title" data-i18n="agenda_title_1">Intro: Comunitatea QA Moldova</div>
+            <div class="agenda-speakers" data-i18n="agenda_spk_1">👥 Core Team QA Moldova</div>
+            <span class="agenda-format format-opening" data-i18n="agenda_format_1">Deschidere oficială</span>
           </div>
         </div>
 
         <div class="agenda-item">
           <div class="agenda-time"><span>11:10 – 11:25</span></div>
           <div class="agenda-card agenda-card--featured">
-            <div class="agenda-segment">Prezentare · 15 min</div>
-            <div class="agenda-title">The Quality Orchestrator: Cum să devii liderul QA de care companiile au nevoie în era AI</div>
-            <div class="agenda-speakers">🎤 Daniela Popov — Recruitment Manager, Amdaris</div>
-            <span class="agenda-format format-presentation">Prezentare</span>
+            <div class="agenda-segment" data-i18n="agenda_seg_2">Prezentare · 15 min</div>
+            <div class="agenda-title" data-i18n="agenda_title_2">The Quality Orchestrator: Cum să devii liderul QA de care companiile au nevoie în era AI</div>
+            <div class="agenda-speakers" data-i18n="agenda_spk_2">🎤 Daniela Popov — Recruitment Manager, Amdaris</div>
+            <span class="agenda-format format-presentation" data-i18n="agenda_format_2">Prezentare</span>
           </div>
         </div>
 
         <div class="agenda-item">
           <div class="agenda-time"><span>11:25 – 11:45</span></div>
           <div class="agenda-card">
-            <div class="agenda-segment">Panel Discussion · 20 min</div>
-            <div class="agenda-title">QA between Expectations and Reality: ce caută industria în 2026?</div>
-            <div class="agenda-speakers">👔 4 invitați — anunțați în curând</div>
-            <span class="agenda-format format-panel">Panel Discussion</span>
+            <div class="agenda-segment" data-i18n="agenda_seg_3">Panel Discussion · 20 min</div>
+            <div class="agenda-title" data-i18n="agenda_title_3">QA between Expectations and Reality: ce caută industria în 2026?</div>
+            <div class="agenda-speakers" data-i18n="agenda_spk_3">👔 4 invitați — anunțați în curând</div>
+            <span class="agenda-format format-panel" data-i18n="agenda_format_3">Panel Discussion</span>
           </div>
         </div>
 
         <div class="agenda-item">
           <div class="agenda-time"><span>11:45 – 12:00</span></div>
           <div class="agenda-card agenda-card--featured">
-            <div class="agenda-segment">Prezentare · 15 min</div>
-            <div class="agenda-title">QA in the Fintech World: When Security Matters More Than Speed</div>
-            <div class="agenda-speakers">🎤 Maxim Anastasiev — Head of Quality Assurance, MAIB</div>
-            <span class="agenda-format format-presentation">Prezentare</span>
+            <div class="agenda-segment" data-i18n="agenda_seg_4">Prezentare · 15 min</div>
+            <div class="agenda-title" data-i18n="agenda_title_4">QA in the Fintech World: When Security Matters More Than Speed</div>
+            <div class="agenda-speakers" data-i18n="agenda_spk_4">🎤 Maxim Anastasiev — Head of Quality Assurance, MAIB</div>
+            <span class="agenda-format format-presentation" data-i18n="agenda_format_4">Prezentare</span>
           </div>
         </div>
 
         <div class="agenda-item">
           <div class="agenda-time"><span>12:00 – 12:30</span></div>
           <div class="agenda-card">
-            <div class="agenda-segment">Workshop · 30 min</div>
-            <div class="agenda-title">Skill-up: Demo Practic & Tooling Modern în QA</div>
-            <div class="agenda-speakers">🛠️ Alex Ursu — QA Manager, Planable</div>
-            <span class="agenda-format format-workshop">Workshop Practic</span>
+            <div class="agenda-segment" data-i18n="agenda_seg_5">Workshop · 30 min</div>
+            <div class="agenda-title" data-i18n="agenda_title_5">Skill-up: Demo Practic & Tooling Modern în QA</div>
+            <div class="agenda-speakers" data-i18n="agenda_spk_5">🛠️ Alex Ursu — QA Manager, Planable</div>
+            <span class="agenda-format format-workshop" data-i18n="agenda_format_5">Workshop Practic</span>
           </div>
         </div>
 
@@ -232,9 +237,9 @@
   <section class="speakers" id="speakers">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Speakeri Confirmați</div>
-        <h2 class="section-title">Meet the <span class="accent">Speakers</span></h2>
-        <p class="section-desc">Profesioniști din industrie gata să împartă din experiența lor reală.</p>
+        <div class="section-label" data-i18n="speakers_label">Speakeri Confirmați</div>
+        <h2 class="section-title" data-i18n-html="speakers_title">Meet the <span class="accent">Speakers</span></h2>
+        <p class="section-desc" data-i18n="speakers_desc">Profesioniști din industrie gata să împartă din experiența lor reală.</p>
       </div>
 
       <div class="speakers-grid speakers-grid--3">
@@ -244,11 +249,11 @@
             <img src="images/maxim-anastasiev.jpg" alt="Maxim Anastasiev" class="speaker-photo" style="object-position: center 20%;" />
           </div>
           <div class="speaker-info">
-            <div class="speaker-badge">Speaker</div>
+            <div class="speaker-badge" data-i18n="speaker_badge_speaker">Speaker</div>
             <div class="speaker-name">Maxim Anastasiev</div>
             <div class="speaker-role">Head of Quality Assurance</div>
             <div class="speaker-company">maib</div>
-            <div class="speaker-topic">„QA in the Fintech World: When Security Matters More Than Speed"</div>
+            <div class="speaker-topic" data-i18n="speaker_topic_maxim">„QA in the Fintech World: When Security Matters More Than Speed"</div>
           </div>
         </div>
 
@@ -257,11 +262,11 @@
             <img src="images/daniela-popov.jpg" alt="Daniela Popov" class="speaker-photo" />
           </div>
           <div class="speaker-info">
-            <div class="speaker-badge">Speaker</div>
+            <div class="speaker-badge" data-i18n="speaker_badge_speaker">Speaker</div>
             <div class="speaker-name">Daniela Popov</div>
             <div class="speaker-role">Recruitment Manager</div>
             <div class="speaker-company">Amdaris</div>
-            <div class="speaker-topic">„The Quality Orchestrator: Cum să devii liderul QA de care companiile au nevoie în era AI"</div>
+            <div class="speaker-topic" data-i18n="speaker_topic_daniela">„The Quality Orchestrator: Cum să devii liderul QA de care companiile au nevoie în era AI"</div>
           </div>
         </div>
 
@@ -270,11 +275,11 @@
             <img src="images/alex-ursu.jpg" alt="Alex Ursu" class="speaker-photo" style="object-position: center 20%;" />
           </div>
           <div class="speaker-info">
-            <div class="speaker-badge speaker-badge--workshop">Workshop</div>
+            <div class="speaker-badge speaker-badge--workshop" data-i18n="speaker_badge_workshop">Workshop</div>
             <div class="speaker-name">Alex Ursu</div>
             <div class="speaker-role">QA Manager</div>
             <div class="speaker-company">Planable</div>
-            <div class="speaker-topic">Workshop practic: demonstrații live cu tooling modern de testare și automatizare</div>
+            <div class="speaker-topic" data-i18n="speaker_topic_alex">Workshop practic: demonstrații live cu tooling modern de testare și automatizare</div>
           </div>
         </div>
 
@@ -286,9 +291,9 @@
   <section class="panel-section" id="panel">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Panel Discussion · 20 min</div>
-        <h2 class="section-title">QA between <span class="accent">Expectations</span> and Reality</h2>
-        <p class="section-desc">O conversație deschisă despre candidatul ideal în 2026 — cu invitați din industrie.</p>
+        <div class="section-label" data-i18n="panel_label">Panel Discussion · 20 min</div>
+        <h2 class="section-title" data-i18n-html="panel_title">QA between <span class="accent">Expectations</span> and Reality</h2>
+        <p class="section-desc" data-i18n="panel_desc">O conversație deschisă despre candidatul ideal în 2026 — cu invitați din industrie.</p>
       </div>
 
       <!-- Guest speakers TBD -->
@@ -296,52 +301,52 @@
         <div class="panel-guest-card panel-guest-card--tbd">
           <div class="panel-guest-avatar">?</div>
           <div class="panel-guest-name">Guest Speaker</div>
-          <div class="panel-guest-company">Anunțat în curând</div>
+          <div class="panel-guest-company" data-i18n="panel_tbd_company">Anunțat în curând</div>
         </div>
         <div class="panel-guest-card panel-guest-card--tbd">
           <div class="panel-guest-avatar">?</div>
           <div class="panel-guest-name">Guest Speaker</div>
-          <div class="panel-guest-company">Anunțat în curând</div>
+          <div class="panel-guest-company" data-i18n="panel_tbd_company">Anunțat în curând</div>
         </div>
         <div class="panel-guest-card panel-guest-card--tbd">
           <div class="panel-guest-avatar">?</div>
           <div class="panel-guest-name">Guest Speaker</div>
-          <div class="panel-guest-company">Anunțat în curând</div>
+          <div class="panel-guest-company" data-i18n="panel_tbd_company">Anunțat în curând</div>
         </div>
         <div class="panel-guest-card panel-guest-card--tbd">
           <div class="panel-guest-avatar">?</div>
           <div class="panel-guest-name">Guest Speaker</div>
-          <div class="panel-guest-company">Anunțat în curând</div>
+          <div class="panel-guest-company" data-i18n="panel_tbd_company">Anunțat în curând</div>
         </div>
       </div>
 
       <!-- Panel questions -->
       <div class="panel-questions">
         <div class="panel-block">
-          <div class="panel-block-label">🧊 Spargem gheața</div>
+          <div class="panel-block-label" data-i18n="panel_block1_label">🧊 Spargem gheața</div>
           <ul class="panel-q-list">
-            <li>Ce s-a schimbat în QA și cerințele față de poziția QA în ultimii 2–3 ani?</li>
-            <li>Care sunt direcțiile reale de carieră în QA astăzi?</li>
+            <li data-i18n="panel_q1_1">Ce s-a schimbat în QA și cerințele față de poziția QA în ultimii 2–3 ani?</li>
+            <li data-i18n="panel_q1_2">Care sunt direcțiile reale de carieră în QA astăzi?</li>
           </ul>
         </div>
         <div class="panel-block">
-          <div class="panel-block-label">💬 Main Discussion</div>
+          <div class="panel-block-label" data-i18n="panel_block2_label">💬 Main Discussion</div>
           <ul class="panel-q-list">
-            <li>Ce skill-uri sunt cu adevărat folosite zilnic, nu doar cerute în job descriptions?</li>
-            <li>Ce învață QA-ii, dar nu folosesc aproape niciodată?</li>
-            <li>Ce este subestimat în cariera QA?</li>
-            <li>Se preferă un QA foarte tehnic sau unul care înțelege foarte bine business-ul?</li>
-            <li>Ce diferențiază un QA care „execută task-uri" de unul care aduce valoare?</li>
-            <li>Soft skills sau hard skills prevalează în luarea unei decizii asupra candidatului?</li>
-            <li>Mai este testarea manuală o carieră sustenabilă pe termen lung?</li>
-            <li>Ce înseamnă „QA bun" în 2026?</li>
+            <li data-i18n="panel_q2_1">Ce skill-uri sunt cu adevărat folosite zilnic, nu doar cerute în job descriptions?</li>
+            <li data-i18n="panel_q2_2">Ce învață QA-ii, dar nu folosesc aproape niciodată?</li>
+            <li data-i18n="panel_q2_3">Ce este subestimat în cariera QA?</li>
+            <li data-i18n="panel_q2_4">Se preferă un QA foarte tehnic sau unul care înțelege foarte bine business-ul?</li>
+            <li data-i18n="panel_q2_5">Ce diferențiază un QA care „execută task-uri" de unul care aduce valoare?</li>
+            <li data-i18n="panel_q2_6">Soft skills sau hard skills prevalează în luarea unei decizii asupra candidatului?</li>
+            <li data-i18n="panel_q2_7">Mai este testarea manuală o carieră sustenabilă pe termen lung?</li>
+            <li data-i18n="panel_q2_8">Ce înseamnă „QA bun" în 2026?</li>
           </ul>
         </div>
         <div class="panel-block">
-          <div class="panel-block-label">🏁 Încheiere</div>
+          <div class="panel-block-label" data-i18n="panel_block3_label">🏁 Încheiere</div>
           <ul class="panel-q-list">
-            <li>Cum reușești să ții pasul cu cerințele pe piață?</li>
-            <li>Care sunt cele mai mari greșeli pe care le vezi la QA în carieră?</li>
+            <li data-i18n="panel_q3_1">Cum reușești să ții pasul cu cerințele pe piață?</li>
+            <li data-i18n="panel_q3_2">Care sunt cele mai mari greșeli pe care le vezi la QA în carieră?</li>
           </ul>
         </div>
       </div>
@@ -352,41 +357,41 @@
   <section class="topics" id="topics">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Teme Principale</div>
-        <h2 class="section-title">Ce vei <span class="accent">descoperi</span></h2>
-        <p class="section-desc">Subiecte relevante pentru 2026, alese special pentru audiența noastră.</p>
+        <div class="section-label" data-i18n="topics_label">Teme Principale</div>
+        <h2 class="section-title" data-i18n-html="topics_title">Ce vei <span class="accent">descoperi</span></h2>
+        <p class="section-desc" data-i18n="topics_desc">Subiecte relevante pentru 2026, alese special pentru audiența noastră.</p>
       </div>
 
       <div class="topics-grid">
         <div class="topic-card">
           <div class="topic-icon">🤖</div>
-          <div class="topic-title">QA vs. AI</div>
-          <div class="topic-desc">Mai merită să înveți testare manuală? Cum se schimbă rolul testerului în era inteligenței artificiale.</div>
+          <div class="topic-title" data-i18n="topic1_title">QA vs. AI</div>
+          <div class="topic-desc" data-i18n="topic1_desc">Mai merită să înveți testare manuală? Cum se schimbă rolul testerului în era inteligenței artificiale.</div>
         </div>
         <div class="topic-card">
           <div class="topic-icon">🎯</div>
-          <div class="topic-title">Candidatul Ideal în 2026</div>
-          <div class="topic-desc">Ce diferențiază un candidat QA care primește oferta de cel care nu trece de screening. Skills, atitudine, mindset.</div>
+          <div class="topic-title" data-i18n="topic2_title">Candidatul Ideal în 2026</div>
+          <div class="topic-desc" data-i18n="topic2_desc">Ce diferențiază un candidat QA care primește oferta de cel care nu trece de screening. Skills, atitudine, mindset.</div>
         </div>
         <div class="topic-card">
           <div class="topic-icon">🏢</div>
-          <div class="topic-title">De la UTM la Office</div>
-          <div class="topic-desc">Cum aplici în proiecte reale ceea ce înveți la facultate. Gap-ul teorie-practică și cum să-l depășești.</div>
+          <div class="topic-title" data-i18n="topic3_title">De la UTM la Office</div>
+          <div class="topic-desc" data-i18n="topic3_desc">Cum aplici în proiecte reale ceea ce înveți la facultate. Gap-ul teorie-practică și cum să-l depășești.</div>
         </div>
         <div class="topic-card">
           <div class="topic-icon">🏦</div>
-          <div class="topic-title">QA în Fintech</div>
-          <div class="topic-desc">Specificul testării în mediul financiar-bancar — când securitatea contează mai mult decât viteza.</div>
+          <div class="topic-title" data-i18n="topic4_title">QA în Fintech</div>
+          <div class="topic-desc" data-i18n="topic4_desc">Specificul testării în mediul financiar-bancar — când securitatea contează mai mult decât viteza.</div>
         </div>
         <div class="topic-card">
           <div class="topic-icon">💬</div>
-          <div class="topic-title">Prompt Engineering în QA</div>
-          <div class="topic-desc">Cum să folosești AI-ul în procesul de testare. Skill-uri practice de prompt engineering pentru testeri.</div>
+          <div class="topic-title" data-i18n="topic5_title">Prompt Engineering în QA</div>
+          <div class="topic-desc" data-i18n="topic5_desc">Cum să folosești AI-ul în procesul de testare. Skill-uri practice de prompt engineering pentru testeri.</div>
         </div>
         <div class="topic-card">
           <div class="topic-icon">🚀</div>
-          <div class="topic-title">Recrutare & Carieră</div>
-          <div class="topic-desc">Sfaturi directe de la profesioniști din industrie. Ce CV, ce atitudine, ce întrebări să pui la interviu.</div>
+          <div class="topic-title" data-i18n="topic6_title">Recrutare & Carieră</div>
+          <div class="topic-desc" data-i18n="topic6_desc">Sfaturi directe de la profesioniști din industrie. Ce CV, ce atitudine, ce întrebări să pui la interviu.</div>
         </div>
       </div>
     </div>
@@ -396,9 +401,9 @@
   <section class="location" id="location">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Locație</div>
-        <h2 class="section-title">Unde ne <span class="accent">întâlnim</span></h2>
-        <p class="section-desc">Evenimentul are loc în inima comunității studențești din Chișinău.</p>
+        <div class="section-label" data-i18n="loc_label">Locație</div>
+        <h2 class="section-title" data-i18n-html="loc_title">Unde ne <span class="accent">întâlnim</span></h2>
+        <p class="section-desc" data-i18n="loc_desc">Evenimentul are loc în inima comunității studențești din Chișinău.</p>
       </div>
 
       <div class="location-grid">
@@ -413,8 +418,8 @@
             </iframe>
           </div>
           <div class="location-details">
-            <div class="location-name">Universitatea Tehnică a Moldovei</div>
-            <div class="location-address">Blocul 3 (FCIM) — Aula 3-3<br>bd. Ștefan cel Mare și Sfânt 168, Chișinău, MD-2004</div>
+            <div class="location-name" data-i18n="loc_name">Universitatea Tehnică a Moldovei</div>
+            <div class="location-address" data-i18n-html="loc_address">Blocul 3 (FCIM) — Aula 3-3<br>bd. Ștefan cel Mare și Sfânt 168, Chișinău, MD-2004</div>
           </div>
         </div>
 
@@ -422,36 +427,36 @@
           <div class="location-info-item">
             <div class="icon-box">🕚</div>
             <div>
-              <h4>Data și Ora</h4>
-              <p>Sâmbătă, 25 Aprilie 2026<br>Ușile se deschid la 10:45, Start 11:00</p>
+              <h4 data-i18n="loc_info1_h">Data și Ora</h4>
+              <p data-i18n-html="loc_info1_p">Sâmbătă, 25 Aprilie 2026<br>Ușile se deschid la 10:45, Start 11:00</p>
             </div>
           </div>
           <div class="location-info-item">
             <div class="icon-box">🏛️</div>
             <div>
-              <h4>Sala</h4>
-              <p>Blocul 3 (FCIM), Aula 3-3<br>Intrare cu permis de acces — detalii după înregistrare</p>
+              <h4 data-i18n="loc_info2_h">Sala</h4>
+              <p data-i18n-html="loc_info2_p">Blocul 3 (FCIM), Aula 3-3<br>Intrare cu permis de acces — detalii după înregistrare</p>
             </div>
           </div>
           <div class="location-info-item">
             <div class="icon-box">📶</div>
             <div>
-              <h4>Facilități</h4>
-              <p>Wi-Fi disponibil pentru workshop<br>Proiector + microfoane pentru panel</p>
+              <h4 data-i18n="loc_info3_h">Facilități</h4>
+              <p data-i18n-html="loc_info3_p">Wi-Fi disponibil pentru workshop<br>Proiector + microfoane pentru panel</p>
             </div>
           </div>
           <div class="location-info-item">
             <div class="icon-box">🚇</div>
             <div>
-              <h4>Transport</h4>
-              <p>Accesibil cu transportul public<br>Troleibuz: 3, 22 — stația UTM</p>
+              <h4 data-i18n="loc_info4_h">Transport</h4>
+              <p data-i18n-html="loc_info4_p">Accesibil cu transportul public<br>Troleibuz: 3, 22 — stația UTM</p>
             </div>
           </div>
           <div class="location-info-item">
             <div class="icon-box">📋</div>
             <div>
-              <h4>Intrare</h4>
-              <p>Gratuită, cu înregistrare prealabilă<br>Confirmare prin email după înregistrare</p>
+              <h4 data-i18n="loc_info5_h">Intrare</h4>
+              <p data-i18n-html="loc_info5_p">Gratuită, cu înregistrare prealabilă<br>Confirmare prin email după înregistrare</p>
             </div>
           </div>
         </div>
@@ -462,12 +467,12 @@
   <!-- ─── CTA ─── -->
   <section class="cta-section" id="register-cta">
     <div class="container">
-      <h2>Ești gata să te <span class="accent">alături</span> nouă?</h2>
-      <p>Locurile sunt limitate. Înregistrează-te gratuit și asigură-ți locul la cel mai tare eveniment QA din Moldova.</p>
-      <a href="register.html" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">
+      <h2 data-i18n-html="cta_title">Ești gata să te <span class="accent">alături</span> nouă?</h2>
+      <p data-i18n="cta_desc">Locurile sunt limitate. Înregistrează-te gratuit și asigură-ți locul la cel mai tare eveniment QA din Moldova.</p>
+      <a href="register.html" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;" data-i18n="cta_btn">
         ✦ Înregistrare Gratuită
       </a>
-      <p class="cta-note">🔐 Nu necesită cont. Date confidențiale, nu trimitem spam.</p>
+      <p class="cta-note" data-i18n="cta_note">🔐 Nu necesită cont. Date confidențiale, nu trimitem spam.</p>
     </div>
   </section>
 
@@ -479,17 +484,17 @@
         <span>QA Moldova Community</span>
       </a>
       <div class="footer-links">
-        <a href="#about">Despre</a>
-        <a href="#agenda">Agenda</a>
-        <a href="#speakers">Speakeri</a>
-        <a href="#panel">Panel</a>
-        <a href="register.html">Înregistrare</a>
+        <a href="#about" data-i18n="footer_about">Despre</a>
+        <a href="#agenda" data-i18n="footer_agenda">Agenda</a>
+        <a href="#speakers" data-i18n="footer_speakers">Speakeri</a>
+        <a href="#panel" data-i18n="footer_panel">Panel</a>
+        <a href="register.html" data-i18n="footer_register">Înregistrare</a>
         <a href="https://www.instagram.com/qacommunitymoldova/" target="_blank" rel="noopener" class="footer-social">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Instagram
+          <span data-i18n="footer_instagram">Instagram</span>
         </a>
       </div>
-      <div class="footer-copy">© 2026 QA Moldova · Empowering quality and innovation!</div>
+      <div class="footer-copy" data-i18n="footer_copy">© 2026 QA Moldova · Empowering quality and innovation!</div>
     </div>
   </footer>
 
@@ -562,5 +567,6 @@
       observer.observe(el);
     });
   </script>
+  <script src="i18n.js"></script>
 </body>
 </html>

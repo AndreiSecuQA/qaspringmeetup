@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>48h Reminder — QA Spring Meetup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #040e1a;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .preview-wrap {
+      transform: scale(0.46);
+      transform-origin: top left;
+      width: 1080px;
+      height: 1080px;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      background: #071428;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Subtle radial glow behind the number */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -52%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,160,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Top accent bar */
+    .accent-line-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #00c8a0, transparent);
+    }
+
+    /* Bottom accent bar */
+    .accent-line-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #00c8a0, transparent);
+    }
+
+    /* Brand top */
+    .brand-row {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .qa-logo {
+      width: 52px;
+      height: 52px;
+      border: 2.5px solid #00c8a0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 16px;
+      color: #00c8a0;
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #8ca0b8;
+      letter-spacing: 0.06em;
+    }
+
+    /* The huge number */
+    .big-number {
+      font-size: 420px;
+      font-weight: 900;
+      color: #00c8a0;
+      line-height: 0.85;
+      letter-spacing: -20px;
+      position: relative;
+      z-index: 1;
+      /* Subtle text shadow glow */
+      text-shadow: 0 0 80px rgba(0,200,160,0.3), 0 0 200px rgba(0,200,160,0.1);
+    }
+
+    .unit-label {
+      font-size: 72px;
+      font-weight: 900;
+      color: #00c8a0;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-top: -20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitle {
+      font-size: 32px;
+      font-weight: 600;
+      color: #8ca0b8;
+      margin-top: 28px;
+      letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Date pill */
+    .date-pill {
+      display: inline-flex;
+      background: rgba(0,200,160,0.1);
+      border: 1.5px solid rgba(0,200,160,0.35);
+      border-radius: 100px;
+      padding: 14px 44px;
+      font-size: 26px;
+      font-weight: 700;
+      color: #00c8a0;
+      letter-spacing: 0.05em;
+      margin-top: 36px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Bottom content */
+    .bottom-content {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cta-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .cta-arrow {
+      font-size: 24px;
+      font-weight: 700;
+      color: #00c8a0;
+    }
+
+    .handle {
+      font-size: 20px;
+      font-weight: 600;
+      color: #8ca0b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-wrap">
+    <div class="card">
+      <div class="accent-line-top"></div>
+      <div class="accent-line-bottom"></div>
+
+      <!-- Brand top -->
+      <div class="brand-row">
+        <div class="qa-logo">QA</div>
+        <div class="brand-name">QA Moldova Community</div>
+      </div>
+
+      <!-- Main: huge number -->
+      <div class="big-number">48</div>
+      <div class="unit-label">ORE</div>
+      <div class="subtitle">Până la QA Spring Meetup</div>
+      <div class="date-pill">25 Aprilie · 11:00 · UTM</div>
+
+      <!-- Bottom -->
+      <div class="bottom-content">
+        <div class="cta-text">Te-ai înregistrat? <span class="cta-arrow">→ Link în bio</span></div>
+        <div class="handle">@qacommunitymoldova</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

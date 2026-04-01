@@ -18,14 +18,19 @@
       <span class="nav-logo-text">QA <span>Meetup</span></span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html#about">Despre</a></li>
-      <li><a href="index.html#agenda">Agenda</a></li>
-      <li><a href="index.html#speakers">Speakeri</a></li>
-      <li><a href="index.html#location">Locație</a></li>
-      <li><a href="register.html" class="nav-cta">Înregistrare</a></li>
+      <li><a href="index.html#about" data-i18n="nav_about">Despre</a></li>
+      <li><a href="index.html#agenda" data-i18n="nav_agenda">Agenda</a></li>
+      <li><a href="index.html#speakers" data-i18n="nav_speakers">Speakeri</a></li>
+      <li><a href="index.html#location" data-i18n="nav_location">Locație</a></li>
+      <li><a href="register.html" class="nav-cta" data-i18n="nav_register">Înregistrare</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
+    </div>
+    <div class="lang-switcher" id="lang-switcher">
+      <button class="lang-btn" data-lang="ro" onclick="setLang('ro')">RO</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
     </div>
   </nav>
 
@@ -36,25 +41,25 @@
 
       <!-- Header -->
       <div class="register-header">
-        <div class="hero-badge" style="display:inline-flex;margin-bottom:1rem;">
+        <div class="hero-badge" style="display:inline-flex;margin-bottom:1rem;" data-i18n="reg_badge">
           ✦ Înregistrare Gratuită
         </div>
-        <h1>Rezervă-ți <span class="accent">locul</span></h1>
-        <p>Completează formularul de mai jos. Vei primi o confirmare pe email.</p>
+        <h1 data-i18n-html="reg_title">Rezervă-ți <span class="accent">locul</span></h1>
+        <p data-i18n="reg_subtitle">Completează formularul de mai jos. Vei primi o confirmare pe email.</p>
       </div>
 
       <!-- Event chips -->
       <div class="register-event-info">
-        <div class="info-chip">📅 25 Aprilie 2026, 11:00</div>
-        <div class="info-chip">📍 UTM, Aula 3-3</div>
-        <div class="info-chip">⏱️ 90 minute</div>
-        <div class="info-chip">🆓 Gratuit</div>
+        <div class="info-chip" data-i18n="reg_chip_date">📅 25 Aprilie 2026, 11:00</div>
+        <div class="info-chip" data-i18n="reg_chip_location">📍 UTM, Aula 3-3</div>
+        <div class="info-chip" data-i18n="reg_chip_duration">⏱️ 90 minute</div>
+        <div class="info-chip" data-i18n="reg_chip_free">🆓 Gratuit</div>
       </div>
 
       <!-- Spots indicator -->
       <div class="spots-counter">
-        <span class="spots-text">🔥 Locuri limitate disponibile</span>
-        <span class="spots-num">Înregistrare gratuită</span>
+        <span class="spots-text" data-i18n="reg_spots_text">🔥 Locuri limitate disponibile</span>
+        <span class="spots-num" data-i18n="reg_spots_num">Înregistrare gratuită</span>
       </div>
 
       <!-- Form card -->
@@ -64,77 +69,81 @@
         <div class="progress-steps" id="progress">
           <div class="step" id="step-indicator-1">
             <div class="step-circle active" id="circle-1">1</div>
-            <div class="step-label active" id="label-1">Date personale</div>
+            <div class="step-label active" id="label-1" data-i18n="reg_step1_label">Date personale</div>
           </div>
           <div class="step-connector" id="connector-1"></div>
           <div class="step" id="step-indicator-2">
             <div class="step-circle" id="circle-2">2</div>
-            <div class="step-label" id="label-2">Profil</div>
+            <div class="step-label" id="label-2" data-i18n="reg_step2_label">Profil</div>
           </div>
           <div class="step-connector" id="connector-2"></div>
           <div class="step" id="step-indicator-3">
             <div class="step-circle" id="circle-3">3</div>
-            <div class="step-label" id="label-3">Confirmare</div>
+            <div class="step-label" id="label-3" data-i18n="reg_step3_label">Confirmare</div>
           </div>
         </div>
 
         <!-- Step 1: Personal info -->
         <div class="form-step active" id="step-1">
-          <h3 style="font-size:1.15rem;margin-bottom:1.5rem;color:var(--white);">
+          <h3 style="font-size:1.15rem;margin-bottom:1.5rem;color:var(--white);" data-i18n="reg_step1_title">
             Date personale
           </h3>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="firstName">Prenume <span class="required">*</span></label>
+              <label for="firstName"><span data-i18n="reg_firstname_label">Prenume</span> <span class="required">*</span></label>
               <input
                 type="text"
                 id="firstName"
                 class="form-input"
                 placeholder="ex: Andrei"
+                data-i18n-ph="reg_firstname_ph"
                 autocomplete="given-name"
               />
-              <div class="error-msg" id="firstName-error">Te rugăm să introduci prenumele.</div>
+              <div class="error-msg" id="firstName-error" data-i18n="reg_firstname_error">Te rugăm să introduci prenumele.</div>
             </div>
             <div class="form-group">
-              <label for="lastName">Nume <span class="required">*</span></label>
+              <label for="lastName"><span data-i18n="reg_lastname_label">Nume</span> <span class="required">*</span></label>
               <input
                 type="text"
                 id="lastName"
                 class="form-input"
                 placeholder="ex: Popescu"
+                data-i18n-ph="reg_lastname_ph"
                 autocomplete="family-name"
               />
-              <div class="error-msg" id="lastName-error">Te rugăm să introduci numele.</div>
+              <div class="error-msg" id="lastName-error" data-i18n="reg_lastname_error">Te rugăm să introduci numele.</div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Adresă de email <span class="required">*</span></label>
+            <label for="email"><span data-i18n="reg_email_label">Adresă de email</span> <span class="required">*</span></label>
             <input
               type="email"
               id="email"
               class="form-input"
               placeholder="ex: andrei@example.com"
+              data-i18n-ph="reg_email_ph"
               autocomplete="email"
             />
-            <div class="error-msg" id="email-error">Te rugăm să introduci un email valid.</div>
+            <div class="error-msg" id="email-error" data-i18n="reg_email_error">Te rugăm să introduci un email valid.</div>
           </div>
 
           <div class="form-group">
-            <label for="phone">Număr de telefon <span style="color:var(--text-muted);font-weight:400;">(opțional)</span></label>
+            <label for="phone"><span data-i18n="reg_phone_label">Număr de telefon</span> <span style="color:var(--text-muted);font-weight:400;" data-i18n="reg_phone_optional">(opțional)</span></label>
             <input
               type="tel"
               id="phone"
               class="form-input"
               placeholder="ex: +373 69 000 000"
+              data-i18n-ph="reg_phone_ph"
               autocomplete="tel"
             />
           </div>
 
           <div class="form-footer">
             <div></div>
-            <button class="btn btn-primary" onclick="goToStep(2)">
+            <button class="btn btn-primary" onclick="goToStep(2)" data-i18n="reg_btn_continue">
               Continuă →
             </button>
           </div>
@@ -142,69 +151,70 @@
 
         <!-- Step 2: Profile -->
         <div class="form-step" id="step-2">
-          <h3 style="font-size:1.15rem;margin-bottom:1.5rem;color:var(--white);">
+          <h3 style="font-size:1.15rem;margin-bottom:1.5rem;color:var(--white);" data-i18n="reg_step2_title">
             Spune-ne mai multe despre tine
           </h3>
 
           <div class="form-group">
-            <label for="role">Care este profilul tău? <span class="required">*</span></label>
+            <label for="role"><span data-i18n="reg_role_label">Care este profilul tău?</span> <span class="required">*</span></label>
             <select id="role" class="form-input form-select">
-              <option value="" disabled selected>Selectează profilul tău</option>
-              <option value="student">Student (IT / Informatică)</option>
-              <option value="student-other">Student (altă specialitate)</option>
-              <option value="junior">Junior QA / Tester (0-2 ani)</option>
-              <option value="career-change">Reconversie profesională</option>
-              <option value="mid">Mid / Senior QA Engineer</option>
-              <option value="developer">Developer / DevOps</option>
-              <option value="hr">HR / Recruiter</option>
-              <option value="other">Altul</option>
+              <option value="" disabled selected data-i18n="reg_role_ph">Selectează profilul tău</option>
+              <option value="student" data-i18n="reg_role_student">Student (IT / Informatică)</option>
+              <option value="student-other" data-i18n="reg_role_student_oth">Student (altă specialitate)</option>
+              <option value="junior" data-i18n="reg_role_junior">Junior QA / Tester (0-2 ani)</option>
+              <option value="career-change" data-i18n="reg_role_career">Reconversie profesională</option>
+              <option value="mid" data-i18n="reg_role_mid">Mid / Senior QA Engineer</option>
+              <option value="developer" data-i18n="reg_role_dev">Developer / DevOps</option>
+              <option value="hr" data-i18n="reg_role_hr">HR / Recruiter</option>
+              <option value="other" data-i18n="reg_role_other">Altul</option>
             </select>
-            <div class="error-msg" id="role-error">Te rugăm să selectezi profilul tău.</div>
+            <div class="error-msg" id="role-error" data-i18n="reg_role_error">Te rugăm să selectezi profilul tău.</div>
           </div>
 
           <div class="form-group">
-            <label for="company">Universitate / Companie <span style="color:var(--text-muted);font-weight:400;">(opțional)</span></label>
+            <label for="company"><span data-i18n="reg_company_label">Universitate / Companie</span> <span style="color:var(--text-muted);font-weight:400;" data-i18n="reg_company_optional">(opțional)</span></label>
             <input
               type="text"
               id="company"
               class="form-input"
               placeholder="ex: UTM, Endava, Freelancer..."
+              data-i18n-ph="reg_company_ph"
             />
           </div>
 
           <div class="form-group">
-            <label for="interest">Ce te interesează cel mai mult? <span class="required">*</span></label>
+            <label for="interest"><span data-i18n="reg_interest_label">Ce te interesează cel mai mult?</span> <span class="required">*</span></label>
             <select id="interest" class="form-input form-select">
-              <option value="" disabled selected>Alege un subiect</option>
-              <option value="ai-qa">QA în Era AI</option>
-              <option value="career">Carieră QA & Angajare</option>
-              <option value="tools">Tooling & Automatizare</option>
-              <option value="banking">Banking QA</option>
-              <option value="networking">Networking cu profesioniști</option>
-              <option value="all">Toate subiectele</option>
+              <option value="" disabled selected data-i18n="reg_interest_ph">Alege un subiect</option>
+              <option value="ai-qa" data-i18n="reg_interest_ai">QA în Era AI</option>
+              <option value="career" data-i18n="reg_interest_career">Carieră QA & Angajare</option>
+              <option value="tools" data-i18n="reg_interest_tools">Tooling & Automatizare</option>
+              <option value="banking" data-i18n="reg_interest_bank">Banking QA</option>
+              <option value="networking" data-i18n="reg_interest_net">Networking cu profesioniști</option>
+              <option value="all" data-i18n="reg_interest_all">Toate subiectele</option>
             </select>
-            <div class="error-msg" id="interest-error">Te rugăm să selectezi un subiect.</div>
+            <div class="error-msg" id="interest-error" data-i18n="reg_interest_error">Te rugăm să selectezi un subiect.</div>
           </div>
 
           <div class="form-group">
-            <label for="source">Cum ai aflat despre eveniment? <span style="color:var(--text-muted);font-weight:400;">(opțional)</span></label>
+            <label for="source"><span data-i18n="reg_source_label">Cum ai aflat despre eveniment?</span> <span style="color:var(--text-muted);font-weight:400;" data-i18n="reg_source_optional">(opțional)</span></label>
             <select id="source" class="form-input form-select">
-              <option value="" disabled selected>Selectează sursa</option>
-              <option value="linkedin">LinkedIn</option>
-              <option value="instagram">Instagram</option>
-              <option value="facebook">Facebook</option>
-              <option value="telegram">Telegram</option>
-              <option value="friend">Prieten / Coleg</option>
-              <option value="utm">Anunț UTM</option>
-              <option value="other">Altceva</option>
+              <option value="" disabled selected data-i18n="reg_source_ph">Selectează sursa</option>
+              <option value="linkedin" data-i18n="reg_source_linkedin">LinkedIn</option>
+              <option value="instagram" data-i18n="reg_source_instagram">Instagram</option>
+              <option value="facebook" data-i18n="reg_source_facebook">Facebook</option>
+              <option value="telegram" data-i18n="reg_source_telegram">Telegram</option>
+              <option value="friend" data-i18n="reg_source_friend">Prieten / Coleg</option>
+              <option value="utm" data-i18n="reg_source_utm">Anunț UTM</option>
+              <option value="other" data-i18n="reg_source_other">Altceva</option>
             </select>
           </div>
 
           <div class="form-footer">
-            <button class="btn btn-outline" onclick="goToStep(1)">
+            <button class="btn btn-outline" onclick="goToStep(1)" data-i18n="reg_btn_back">
               ← Înapoi
             </button>
-            <button class="btn btn-primary" onclick="goToStep(3)">
+            <button class="btn btn-primary" onclick="goToStep(3)" data-i18n="reg_btn_continue">
               Continuă →
             </button>
           </div>
@@ -212,7 +222,7 @@
 
         <!-- Step 3: Confirm -->
         <div class="form-step" id="step-3">
-          <h3 style="font-size:1.15rem;margin-bottom:1.5rem;color:var(--white);">
+          <h3 style="font-size:1.15rem;margin-bottom:1.5rem;color:var(--white);" data-i18n="reg_step3_title">
             Confirmă înregistrarea
           </h3>
 
@@ -232,7 +242,7 @@
             </div>
             <div class="detail-row">
               <span>📅</span>
-              <span style="color:var(--text-light);">25 Aprilie 2026, ora 11:00 — UTM, Aula 3-3</span>
+              <span style="color:var(--text-light);" data-i18n="reg_summary_date">25 Aprilie 2026, ora 11:00 — UTM, Aula 3-3</span>
             </div>
           </div>
 
@@ -240,26 +250,26 @@
             <div class="checkbox-group">
               <input type="checkbox" id="terms" class="checkbox-input" />
               <label for="terms" class="checkbox-label">
-                Sunt de acord cu prelucrarea datelor personale în scopul organizării evenimentului și primirea confirmării prin email. <span class="required">*</span>
+                <span data-i18n="reg_terms_label">Sunt de acord cu prelucrarea datelor personale în scopul organizării evenimentului și primirea confirmării prin email.</span> <span class="required">*</span>
               </label>
             </div>
-            <div class="error-msg" id="terms-error">Este necesar acordul pentru a continua.</div>
+            <div class="error-msg" id="terms-error" data-i18n="reg_terms_error">Este necesar acordul pentru a continua.</div>
           </div>
 
           <div class="form-group" style="margin-top:0.5rem;">
             <div class="checkbox-group">
               <input type="checkbox" id="newsletter" class="checkbox-input" />
-              <label for="newsletter" class="checkbox-label">
+              <label for="newsletter" class="checkbox-label" data-i18n="reg_newsletter">
                 Doresc să primesc noutăți despre viitoarele evenimente ale comunității QA Moldova.
               </label>
             </div>
           </div>
 
           <div class="form-footer" style="margin-top:2rem;">
-            <button class="btn btn-outline" onclick="goToStep(2)">
+            <button class="btn btn-outline" onclick="goToStep(2)" data-i18n="reg_btn_back">
               ← Înapoi
             </button>
-            <button class="btn btn-primary" onclick="submitForm()" id="submit-btn">
+            <button class="btn btn-primary" onclick="submitForm()" id="submit-btn" data-i18n="reg_btn_submit">
               ✓ Confirmă Înregistrarea
             </button>
           </div>
@@ -268,36 +278,37 @@
         <!-- Success State -->
         <div class="success-state" id="success-state">
           <div class="success-icon">🎉</div>
-          <h2>Înregistrare <span class="accent">confirmată!</span></h2>
-          <p>Felicitări, <strong id="success-name">—</strong>!</p>
-          <p>Un email de confirmare a fost trimis la</p>
+          <h2 data-i18n-html="reg_success_title">Înregistrare <span class="accent">confirmată!</span></h2>
+          <p><span data-i18n="reg_success_congrats">Felicitări,</span> <strong id="success-name">—</strong>!</p>
+          <p data-i18n="reg_success_sent">Un email de confirmare a fost trimis la</p>
           <p class="success-email" id="success-email-display">—</p>
 
           <div class="success-details">
             <div class="detail-row">
               <span>📅</span>
-              <span>Sâmbătă, 25 Aprilie 2026 · ora 11:00</span>
+              <span data-i18n="reg_success_date">Sâmbătă, 25 Aprilie 2026 · ora 11:00</span>
             </div>
             <div class="detail-row">
               <span>📍</span>
-              <span>UTM — Blocul 3 (FCIM), Aula 3-3, Chișinău</span>
+              <span data-i18n="reg_success_location">UTM — Blocul 3 (FCIM), Aula 3-3, Chișinău</span>
             </div>
             <div class="detail-row">
               <span>🚪</span>
-              <span>Ușile se deschid la 10:45 — vino cu 15 min înainte</span>
+              <span data-i18n="reg_success_doors">Ușile se deschid la 10:45 — vino cu 15 min înainte</span>
             </div>
             <div class="detail-row">
               <span>📋</span>
-              <span>Adaugă evenimentul în calendar pentru a nu uita</span>
+              <span data-i18n="reg_success_calendar">Adaugă evenimentul în calendar pentru a nu uita</span>
             </div>
           </div>
 
           <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;">
-            <a href="index.html" class="btn btn-outline">← Înapoi la Site</a>
+            <a href="index.html" class="btn btn-outline" data-i18n="reg_btn_back_site">← Înapoi la Site</a>
             <a
               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=QA+Spring+Meetup+2026&dates=20260425T090000Z/20260425T103000Z&details=QA+Moldova+Spring+Meetup+2026&location=UTM,+Blocul+3+(FCIM),+Aula+3-3,+Chișinău"
               target="_blank"
               class="btn btn-primary"
+              data-i18n="reg_btn_add_calendar"
             >
               📅 Adaugă în Calendar
             </a>
@@ -310,15 +321,15 @@
       <div style="margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center;">
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1rem;">
           <div style="font-size:1.5rem;margin-bottom:0.3rem;">🆓</div>
-          <div style="font-size:0.75rem;color:var(--text-muted);">100% Gratuit</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);" data-i18n="reg_side_free">100% Gratuit</div>
         </div>
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1rem;">
           <div style="font-size:1.5rem;margin-bottom:0.3rem;">🔒</div>
-          <div style="font-size:0.75rem;color:var(--text-muted);">Date securizate</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);" data-i18n="reg_side_secure">Date securizate</div>
         </div>
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1rem;">
           <div style="font-size:1.5rem;margin-bottom:0.3rem;">📧</div>
-          <div style="font-size:0.75rem;color:var(--text-muted);">Confirmare email</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);" data-i18n="reg_side_confirm">Confirmare email</div>
         </div>
       </div>
 
@@ -333,11 +344,11 @@
         <span>QA Moldova Community</span>
       </a>
       <div class="footer-links">
-        <a href="index.html">Acasă</a>
-        <a href="index.html#agenda">Agenda</a>
-        <a href="index.html#speakers">Speakeri</a>
+        <a href="index.html" data-i18n="footer_home">Acasă</a>
+        <a href="index.html#agenda" data-i18n="footer_agenda">Agenda</a>
+        <a href="index.html#speakers" data-i18n="footer_speakers">Speakeri</a>
       </div>
-      <div class="footer-copy">© 2026 QA Moldova · Empowering quality and innovation!</div>
+      <div class="footer-copy" data-i18n="footer_copy">© 2026 QA Moldova · Empowering quality and innovation!</div>
     </div>
   </footer>
 
@@ -349,16 +360,21 @@
 
     let currentStep = 1;
 
-    const roleLabels = {
-      'student': 'Student (IT / Informatică)',
-      'student-other': 'Student (altă specialitate)',
-      'junior': 'Junior QA / Tester (0-2 ani)',
-      'career-change': 'Reconversie profesională',
-      'mid': 'Mid / Senior QA Engineer',
-      'developer': 'Developer / DevOps',
-      'hr': 'HR / Recruiter',
-      'other': 'Altul'
-    };
+    // Role labels are set dynamically from T object in i18n.js
+    function getRoleLabel(role) {
+      const lang = localStorage.getItem('qa_lang') || 'ro';
+      const map = {
+        'student':       T[lang].reg_role_student,
+        'student-other': T[lang].reg_role_student_oth,
+        'junior':        T[lang].reg_role_junior,
+        'career-change': T[lang].reg_role_career,
+        'mid':           T[lang].reg_role_mid,
+        'developer':     T[lang].reg_role_dev,
+        'hr':            T[lang].reg_role_hr,
+        'other':         T[lang].reg_role_other,
+      };
+      return map[role] || role;
+    }
 
     function validateStep(step) {
       let valid = true;
@@ -464,7 +480,7 @@
 
         document.getElementById('summary-name').textContent = firstName + ' ' + lastName;
         document.getElementById('summary-email').textContent = email;
-        document.getElementById('summary-role').textContent = roleLabels[role] || role;
+        document.getElementById('summary-role').textContent = getRoleLabel(role);
       }
 
       document.getElementById('step-' + currentStep).classList.remove('active');
@@ -482,8 +498,9 @@
     async function submitForm() {
       if (!validateStep(3)) return;
 
+      const lang = localStorage.getItem('qa_lang') || 'ro';
       const btn = document.getElementById('submit-btn');
-      btn.textContent = 'Procesare...';
+      btn.textContent = (T[lang] && T[lang].reg_btn_processing) || 'Procesare...';
       btn.disabled = true;
 
       const firstName = document.getElementById('firstName').value.trim();
@@ -525,5 +542,6 @@
       document.querySelector('.register-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   </script>
+  <script src="i18n.js"></script>
 </body>
 </html>

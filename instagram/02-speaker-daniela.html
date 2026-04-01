@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speaker — Daniela Popov</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #040e1a;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .preview-wrap {
+      transform: scale(0.46);
+      transform-origin: top left;
+      width: 1080px;
+      height: 1080px;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      background: #071428;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+
+    /* Left text panel — 60% */
+    .text-panel {
+      width: 60%;
+      height: 100%;
+      padding: 70px 60px 60px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Dot grid on left panel */
+    .text-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,200,160,0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Diagonal gradient separator */
+    .separator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100%;
+      background: linear-gradient(90deg, #071428 0%, transparent 100%);
+      z-index: 3;
+    }
+
+    /* Right photo panel — 40% */
+    .photo-panel {
+      width: 40%;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .photo-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Photo overlay gradient */
+    .photo-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #071428 0%, transparent 40%),
+                  linear-gradient(0deg, rgba(7,20,40,0.5) 0%, transparent 50%);
+    }
+
+    /* Top accent line */
+    .accent-line-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #00c8a0 0%, rgba(0,200,160,0.3) 60%, transparent 100%);
+      z-index: 10;
+    }
+
+    /* Content inside text panel */
+    .panel-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+
+    /* Brand row */
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .qa-logo {
+      width: 56px;
+      height: 56px;
+      border: 2.5px solid #00c8a0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 17px;
+      color: #00c8a0;
+      flex-shrink: 0;
+    }
+
+    .meet-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #00c8a0;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Middle content */
+    .speaker-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .speaker-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: #00c8a0;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .speaker-name {
+      font-size: 68px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .speaker-role {
+      font-size: 24px;
+      font-weight: 600;
+      color: #8ca0b8;
+      margin-bottom: 6px;
+    }
+
+    .speaker-company {
+      font-size: 24px;
+      font-weight: 700;
+      color: #00c8a0;
+      margin-bottom: 44px;
+    }
+
+    /* Topic quote box */
+    .topic-box {
+      background: rgba(0,200,160,0.08);
+      border-left: 4px solid #00c8a0;
+      border-radius: 0 12px 12px 0;
+      padding: 22px 28px;
+      margin-bottom: 0;
+    }
+
+    .topic-box p {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* Bottom info */
+    .bottom-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .event-date {
+      font-size: 18px;
+      font-weight: 700;
+      color: #8ca0b8;
+    }
+
+    .event-date span {
+      color: #00c8a0;
+    }
+
+    .handle {
+      font-size: 16px;
+      font-weight: 600;
+      color: #8ca0b8;
+    }
+
+    /* Decorative teal line */
+    .deco-line {
+      position: absolute;
+      left: 0;
+      right: 40%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(0,200,160,0.4), transparent);
+    }
+    .deco-line-top { top: 120px; }
+  </style>
+</head>
+<body>
+  <div class="preview-wrap">
+    <div class="card">
+      <div class="accent-line-top"></div>
+      <div class="deco-line deco-line-top"></div>
+
+      <!-- Left text panel -->
+      <div class="text-panel">
+        <div class="panel-content">
+          <!-- Top: brand -->
+          <div class="brand-row">
+            <div class="qa-logo">QA</div>
+            <div class="meet-label">Meet the Speaker</div>
+          </div>
+
+          <!-- Middle: speaker info -->
+          <div class="speaker-main">
+            <div class="speaker-label">Speaker · QA Spring Meetup 2026</div>
+            <div class="speaker-name">Daniela<br>Popov</div>
+            <div class="speaker-role">Recruitment Manager</div>
+            <div class="speaker-company">Amdaris</div>
+            <div class="topic-box">
+              <p>"The Quality Orchestrator: Cum să devii liderul QA de care companiile au nevoie în era AI"</p>
+            </div>
+          </div>
+
+          <!-- Bottom: date + handle -->
+          <div class="bottom-info">
+            <div class="event-date"><span>25 Aprilie 2026</span> · 11:00 · UTM</div>
+            <div class="handle">@qacommunitymoldova</div>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </div>
+
+      <!-- Right photo panel -->
+      <div class="photo-panel">
+        <img src="../images/daniela-popov.jpg" alt="Daniela Popov" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

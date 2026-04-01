@@ -1715,3 +1715,30 @@ footer {
     display: none;
   }
 }
+
+/* ── Language Switcher ── */
+.lang-switcher {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.lang-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+}
+.lang-btn:hover,
+.lang-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--teal-dark);
+}
