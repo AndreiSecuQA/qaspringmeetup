@@ -57,7 +57,7 @@ const T = {
     /* About — highlights */
     h1: 'Prezentare: „The Quality Orchestrator" — Daniela Popov (Amdaris)',
     h2: 'Panel de discuții cu 4 invitați din industrie',
-    h3: 'Prezentare: „QA in the Fintech World" — Maxim Anastasiev (MAIB)',
+    h3: 'Prezentare: „QA in the Fintech World" — Maxim Anastasiev (maib)',
     h4: 'Workshop practic — Alex Ursu (Planable)',
     h5: 'Networking cu profesioniști din industria tech din Moldova',
 
@@ -83,12 +83,12 @@ const T = {
 
     agenda_seg_4:     'Prezentare · 15 min',
     agenda_title_4:   'QA in the Fintech World: When Security Matters More Than Speed',
-    agenda_spk_4:     '🎤 Maxim Anastasiev — Head of Quality Assurance, MAIB',
+    agenda_spk_4:     '🎤 Maxim Anastasiev — Head of Quality Assurance, maib',
     agenda_format_4:  'Prezentare',
 
     agenda_seg_5:     'Workshop · 30 min',
     agenda_title_5:   'Skill-up: Demo Practic & Tooling Modern în QA',
-    agenda_spk_5:     '🛠️ Alex Ursu — QA Manager, Planable',
+    agenda_spk_5:     '🛠️ Alex Ursu — QA Lead, Planable',
     agenda_format_5:  'Workshop Practic',
 
     /* Speakers */
@@ -148,18 +148,18 @@ const T = {
     loc_title:    'Unde ne <span class="accent">întâlnim</span>',
     loc_desc:     'Evenimentul are loc în inima comunității studențești din Chișinău.',
     loc_name:     'Universitatea Tehnică a Moldovei',
-    loc_address:  'Blocul 3 (FCIM) — Aula 3-3<br>bd. Ștefan cel Mare și Sfânt 168, Chișinău, MD-2004',
+    loc_address:  'Faculty of Computers, Informatics and Microelectronics — Aula 3-3<br>Strada Studenților 9/7, Chișinău, Moldova',
 
     loc_info1_h: 'Data și Ora',
     loc_info1_p: 'Sâmbătă, 25 Aprilie 2026<br>Ușile se deschid la 10:45, Start 11:00',
     loc_info2_h: 'Sala',
-    loc_info2_p: 'Blocul 3 (FCIM), Aula 3-3<br>Intrare cu permis de acces — detalii după înregistrare',
+    loc_info2_p: 'FCIM (Facultatea Calculatoare, Informatică și Microelectronică), Aula 3-3<br>Intrare cu permis de acces — detalii după înregistrare',
     loc_info3_h: 'Facilități',
     loc_info3_p: 'Wi-Fi disponibil pentru workshop<br>Proiector + microfoane pentru panel',
     loc_info4_h: 'Transport',
-    loc_info4_p: 'Accesibil cu transportul public<br>Troleibuz: 3, 22 — stația UTM',
+    loc_info4_p: 'Accesibil cu transportul public<br>Troleibuz: 10 — stația UTM',
     loc_info5_h: 'Intrare',
-    loc_info5_p: 'Gratuită, cu înregistrare prealabilă<br>Confirmare prin email după înregistrare',
+    loc_info5_p: 'Gratuită, cu înregistrare prealabilă',
 
     /* CTA */
     cta_title: 'Ești gata să te <span class="accent">alături</span> nouă?',
@@ -182,7 +182,7 @@ const T = {
     /* ── Register page ── */
     reg_badge:    '✦ Înregistrare Gratuită',
     reg_title:    'Rezervă-ți <span class="accent">locul</span>',
-    reg_subtitle: 'Completează formularul de mai jos. Vei primi o confirmare pe email.',
+    reg_subtitle: 'Completează formularul de mai jos pentru a-ți rezerva locul.',
 
     reg_chip_date:     '📅 25 Aprilie 2026, 11:00',
     reg_chip_location: '📍 UTM, Aula 3-3',
@@ -327,7 +327,7 @@ const T = {
     /* About — highlights */
     h1: 'Talk: "The Quality Orchestrator" — Daniela Popov (Amdaris)',
     h2: 'Panel discussion with 4 industry guests',
-    h3: 'Talk: "QA in the Fintech World" — Maxim Anastasiev (MAIB)',
+    h3: 'Talk: "QA in the Fintech World" — Maxim Anastasiev (maib)',
     h4: 'Hands-on Workshop — Alex Ursu (Planable)',
     h5: 'Networking with tech industry professionals from Moldova',
 
@@ -353,12 +353,12 @@ const T = {
 
     agenda_seg_4:    'Talk · 15 min',
     agenda_title_4:  'QA in the Fintech World: When Security Matters More Than Speed',
-    agenda_spk_4:    '🎤 Maxim Anastasiev — Head of Quality Assurance, MAIB',
+    agenda_spk_4:    '🎤 Maxim Anastasiev — Head of Quality Assurance, maib',
     agenda_format_4: 'Presentation',
 
     agenda_seg_5:    'Workshop · 30 min',
     agenda_title_5:  'Skill-up: Live Demo & Modern QA Tooling',
-    agenda_spk_5:    '🛠️ Alex Ursu — QA Manager, Planable',
+    agenda_spk_5:    '🛠️ Alex Ursu — QA Lead, Planable',
     agenda_format_5: 'Practical Workshop',
 
     /* Speakers */
@@ -418,7 +418,7 @@ const T = {
     loc_title:    'Where we <span class="accent">meet</span>',
     loc_desc:     'The event takes place in the heart of the student community in Chișinău.',
     loc_name:     'Technical University of Moldova',
-    loc_address:  'Block 3 (FCIM) — Hall 3-3<br>bd. Ștefan cel Mare și Sfânt 168, Chișinău, MD-2004',
+    loc_address:  'Faculty of Computers, Informatics and Microelectronics — Hall 3-3<br>Strada Studenților 9/7, Chișinău, Moldova',
 
     loc_info1_h: 'Date & Time',
     loc_info1_p: 'Saturday, 25 April 2026<br>Doors open at 10:45, Start 11:00',
@@ -427,9 +427,9 @@ const T = {
     loc_info3_h: 'Facilities',
     loc_info3_p: 'Wi-Fi available for the workshop<br>Projector + microphones for the panel',
     loc_info4_h: 'Transport',
-    loc_info4_p: 'Accessible by public transport<br>Trolleybus: 3, 22 — UTM stop',
+    loc_info4_p: 'Accessible by public transport<br>Trolleybus: 10 — UTM stop',
     loc_info5_h: 'Entry',
-    loc_info5_p: 'Free, with prior registration<br>Email confirmation after registration',
+    loc_info5_p: 'Free, with prior registration',
 
     /* CTA */
     cta_title: 'Ready to <span class="accent">join</span> us?',
@@ -452,7 +452,7 @@ const T = {
     /* ── Register page ── */
     reg_badge:    '✦ Free Registration',
     reg_title:    'Reserve your <span class="accent">seat</span>',
-    reg_subtitle: 'Fill in the form below. You will receive a confirmation by email.',
+    reg_subtitle: 'Fill in the form below to reserve your spot.',
 
     reg_chip_date:     '📅 25 April 2026, 11:00',
     reg_chip_location: '📍 UTM, Hall 3-3',
@@ -597,7 +597,7 @@ const T = {
     /* About — highlights */
     h1: 'Доклад: «The Quality Orchestrator» — Даниэла Попов (Amdaris)',
     h2: 'Панельная дискуссия с 4 гостями из индустрии',
-    h3: 'Доклад: «QA in the Fintech World» — Максим Анастасьев (MAIB)',
+    h3: 'Доклад: «QA in the Fintech World» — Максим Анастасьев (maib)',
     h4: 'Практический воркшоп — Алекс Урсу (Planable)',
     h5: 'Нетворкинг со специалистами tech-индустрии Молдовы',
 
@@ -623,12 +623,12 @@ const T = {
 
     agenda_seg_4:    'Доклад · 15 мин',
     agenda_title_4:  'QA in the Fintech World: When Security Matters More Than Speed',
-    agenda_spk_4:    '🎤 Максим Анастасьев — Head of Quality Assurance, MAIB',
+    agenda_spk_4:    '🎤 Максим Анастасьев — Head of Quality Assurance, maib',
     agenda_format_4: 'Презентация',
 
     agenda_seg_5:    'Воркшоп · 30 мин',
     agenda_title_5:  'Skill-up: Демо и современные QA-инструменты',
-    agenda_spk_5:    '🛠️ Алекс Урсу — QA Manager, Planable',
+    agenda_spk_5:    '🛠️ Алекс Урсу — QA Lead, Planable',
     agenda_format_5: 'Практический воркшоп',
 
     /* Speakers */
@@ -688,7 +688,7 @@ const T = {
     loc_title:    'Где мы <span class="accent">встречаемся</span>',
     loc_desc:     'Мероприятие проходит в сердце студенческого сообщества Кишинёва.',
     loc_name:     'Технический университет Молдовы',
-    loc_address:  'Блок 3 (FCIM) — Аула 3-3<br>бул. Штефан чел Маре ши Сфынт 168, Кишинёв, MD-2004',
+    loc_address:  'Факультет компьютеров, информатики и микроэлектроники — Аудитория 3-3<br>Strada Studenților 9/7, Кишинёв, Молдова',
 
     loc_info1_h: 'Дата и время',
     loc_info1_p: 'Суббота, 25 апреля 2026<br>Двери открываются в 10:45, начало в 11:00',
@@ -697,9 +697,9 @@ const T = {
     loc_info3_h: 'Оснащение',
     loc_info3_p: 'Wi-Fi для воркшопа<br>Проектор + микрофоны для панели',
     loc_info4_h: 'Транспорт',
-    loc_info4_p: 'Доступно на общественном транспорте<br>Троллейбус: 3, 22 — остановка ТУМ',
+    loc_info4_p: 'Доступно на общественном транспорте<br>Троллейбус: 10 — остановка ТУМ',
     loc_info5_h: 'Вход',
-    loc_info5_p: 'Бесплатно, с предварительной регистрацией<br>Подтверждение по email после регистрации',
+    loc_info5_p: 'Бесплатно, с предварительной регистрацией',
 
     /* CTA */
     cta_title: 'Готовы <span class="accent">присоединиться</span> к нам?',
@@ -722,7 +722,7 @@ const T = {
     /* ── Register page ── */
     reg_badge:    '✦ Бесплатная регистрация',
     reg_title:    'Забронируйте <span class="accent">место</span>',
-    reg_subtitle: 'Заполните форму ниже. Вы получите подтверждение на email.',
+    reg_subtitle: 'Заполните форму ниже, чтобы зарезервировать место.',
 
     reg_chip_date:     '📅 25 апреля 2026, 11:00',
     reg_chip_location: '📍 ТУМ, Аула 3-3',
