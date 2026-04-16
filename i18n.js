@@ -78,7 +78,7 @@ const T = {
 
     agenda_seg_3:     'Panel Discussion · 20 min',
     agenda_title_3:   'QA between Expectations and Reality: ce caută industria în 2026?',
-    agenda_spk_3:     '👔 Dumitru Ciorbă · Eugen Valah · Artemii Ecaterina · Marianna Paladii',
+    agenda_spk_3:     '👔 Dumitru Ciorbă · Eugen Valah · Ecaterina Artemiev · Marianna Paladii',
     agenda_format_3:  'Panel Discussion',
 
     agenda_seg_4:     'Prezentare · 15 min',
@@ -109,8 +109,8 @@ const T = {
     panel_g1_role: 'Decan, Facultatea Calculatoare, Informatică și Microelectronică',
     panel_g2_name: 'Eugen Valah',
     panel_g2_role: 'QA Engineer, Planable Moldova',
-    panel_g3_name: 'Artemii Ecaterina',
-    panel_g3_role: 'Application Consultant · Președinte, Tech Women Moldova',
+    panel_g3_name: 'Ecaterina Artemiev',
+    panel_g3_role: 'Application Consultant, Stefanini EMEA · Președinte, Tech Women Moldova',
     panel_g4_name: 'Marianna Paladii',
     panel_g4_role: 'Consilier Recrutare, MICB',
 
@@ -355,7 +355,7 @@ const T = {
 
     agenda_seg_3:    'Panel Discussion · 20 min',
     agenda_title_3:  'QA between Expectations and Reality: what is the industry looking for in 2026?',
-    agenda_spk_3:    '👔 Dumitru Ciorbă · Eugen Valah · Artemii Ecaterina · Marianna Paladii',
+    agenda_spk_3:    '👔 Dumitru Ciorbă · Eugen Valah · Ecaterina Artemiev · Marianna Paladii',
     agenda_format_3: 'Panel Discussion',
 
     agenda_seg_4:    'Talk · 15 min',
@@ -386,8 +386,8 @@ const T = {
     panel_g1_role: 'Dean, Faculty of Computers, Informatics and Microelectronics',
     panel_g2_name: 'Eugen Valah',
     panel_g2_role: 'QA Engineer, Planable Moldova',
-    panel_g3_name: 'Artemii Ecaterina',
-    panel_g3_role: 'Application Consultant · President, Tech Women Moldova',
+    panel_g3_name: 'Ecaterina Artemiev',
+    panel_g3_role: 'Application Consultant, Stefanini EMEA · President, Tech Women Moldova',
     panel_g4_name: 'Marianna Paladii',
     panel_g4_role: 'Recruitment Advisor, MICB',
 
@@ -632,7 +632,7 @@ const T = {
 
     agenda_seg_3:    'Панельная дискуссия · 20 мин',
     agenda_title_3:  'QA между ожиданиями и реальностью: что ищет индустрия в 2026?',
-    agenda_spk_3:    '👔 Думитру Чорбэ · Евгений Валах · Артемий Екатерина · Марианна Паладий',
+    agenda_spk_3:    '👔 Думитру Чорбэ · Евгений Валах · Екатерина Артемьев · Марианна Паладий',
     agenda_format_3: 'Панельная дискуссия',
 
     agenda_seg_4:    'Доклад · 15 мин',
@@ -663,8 +663,8 @@ const T = {
     panel_g1_role: 'Декан, Факультет Компьютеров, Информатики и Микроэлектроники',
     panel_g2_name: 'Евгений Валах',
     panel_g2_role: 'QA Engineer, Planable Moldova',
-    panel_g3_name: 'Артемий Екатерина',
-    panel_g3_role: 'Application Consultant · Президент, Tech Women Moldova',
+    panel_g3_name: 'Екатерина Артемьев',
+    panel_g3_role: 'Application Consultant, Stefanini EMEA · Президент, Tech Women Moldova',
     panel_g4_name: 'Марианна Паладий',
     panel_g4_role: 'Консультант по найму, MICB',
 
