@@ -157,7 +157,7 @@ def speaker_slide(c, name, role, company, topic, img_path,
     c.setFillColor(NAVY3)
     c.roundRect(PX - 10, PY - 10, PW + 20, PH + 20, 14, fill=1, stroke=0)
     img = prep_image(img_path, PW, PH, v_pct)
-    c.drawImage(img, PX, PY, PW, PH, mask='auto')
+    c.drawImage(img, PX, PY, PW, PH)          # no mask — fixes rendering in all viewers
     c.setStrokeColor(TEAL)
     c.setLineWidth(3)
     c.roundRect(PX - 2, PY - 2, PW + 4, PH + 4, 8, fill=0, stroke=1)
@@ -165,45 +165,45 @@ def speaker_slide(c, name, role, company, topic, img_path,
     TX = 565
 
     # Badge
-    pill(c, TX, H - 88, badge_label, badge_color,
+    pill(c, TX, H - 90, badge_label, badge_color,
          NAVY if badge_color == TEAL else WHITE)
 
-    # Name
+    # Name — bigger
     parts = name.split()
     c.setFillColor(WHITE)
-    c.setFont('Ar-B', 62)
-    c.drawString(TX, H - 172, parts[0])
+    c.setFont('Ar-B', 80)
+    c.drawString(TX, H - 192, parts[0])
     c.setFillColor(TEAL)
-    c.drawString(TX, H - 242, " ".join(parts[1:]))
+    c.drawString(TX, H - 282, " ".join(parts[1:]))
 
-    # Role
+    # Role — bigger
     c.setFillColor(TEAL)
-    c.setFont('Ar-B', 24)
-    c.drawString(TX, H - 294, role)
+    c.setFont('Ar-B', 32)
+    c.drawString(TX, H - 334, role)
 
     # Company chip
     c.setFillColor(DGREY)
-    c.roundRect(TX, H - 338, len(company) * 12 + 24, 28, 6, fill=1, stroke=0)
+    c.roundRect(TX, H - 382, len(company) * 13 + 26, 30, 6, fill=1, stroke=0)
     c.setFillColor(LGREY)
-    c.setFont('Ar-B', 15)
-    c.drawString(TX + 12, H - 326, company)
+    c.setFont('Ar-B', 17)
+    c.drawString(TX + 13, H - 368, company)
 
     # Divider
     c.setStrokeColor(DGREY)
     c.setLineWidth(1)
-    c.line(TX, H - 364, W - 50, H - 364)
+    c.line(TX, H - 410, W - 50, H - 410)
 
-    # Topic label + text
+    # Topic label + text — bigger
     c.setFillColor(MGREY)
-    c.setFont('Ar-B', 11)
-    c.drawString(TX, H - 396, "TOPIC / SESSION")
+    c.setFont('Ar-B', 12)
+    c.drawString(TX, H - 442, "TOPIC / SESSION")
     c.setFillColor(WHITE)
-    c.setFont('Ar-I', 20)
-    lines = wrap(topic, 42)
-    y = H - 426
+    c.setFont('Ar-I', 24)
+    lines = wrap(topic, 38)
+    y = H - 476
     for line in lines[:4]:
         c.drawString(TX, y, line)
-        y -= 28
+        y -= 32
 
     # Footer
     c.setFillColor(MGREY)
@@ -211,11 +211,15 @@ def speaker_slide(c, name, role, company, topic, img_path,
     c.drawString(TX, 22, "QA Spring Meetup 2026  |  April 25  |  UTM Chisinau")
     c.showPage()
 
-# ── SLIDE 5: PANEL — 4 GUESTS IN ONE ROW ─────────────────────────────────────
+# ── SLIDE 5: PANEL — ALL IN ONE ROW (moderator + guests) ─────────────────────
 def panel_row_slide(c, panel_title, panel_subtitle, guests):
+    """
+    guests: list of dicts — first item is the moderator (has 'moderator': True),
+            rest are panel guests. All shown in one horizontal row.
+    """
     bg(c); grid(c)
 
-    # ── Panel title at the top ──
+    # ── Panel title ──
     c.setFillColor(WHITE)
     c.setFont('Ar-B', 28)
     c.drawString(30, H - 44, panel_title)
@@ -226,74 +230,75 @@ def panel_row_slide(c, panel_title, panel_subtitle, guests):
     c.setLineWidth(2)
     c.line(30, H - 76, W - 30, H - 76)
 
-    # ── Grid params ──
-    MARGIN = 24
-    GAP    = 14
-    TOP    = H - 88     # top of card area
-    BOTTOM = 22
+    # ── Grid ──
+    MARGIN = 20
+    GAP    = 12
+    TOP    = H - 88
+    BOTTOM = 20
     n      = len(guests)
 
-    CW = (W - MARGIN * 2 - GAP * (n - 1)) // n   # ~292
-    CH = TOP - BOTTOM                              # ~610
+    CW = (W - MARGIN * 2 - GAP * (n - 1)) // n
+    CH = TOP - BOTTOM
 
-    PHOTO_H = int(CH * 0.60)   # ~366  — photo takes top 60%
-    TEXT_Y0 = BOTTOM            # bottom of text area
-    TEXT_H  = CH - PHOTO_H     # ~244
+    PHOTO_H = int(CH * 0.60)
+    TEXT_H  = CH - PHOTO_H
 
     for i, g in enumerate(guests):
+        is_mod = g.get('moderator', False)
         cx = MARGIN + i * (CW + GAP)
         cy = BOTTOM
 
-        # Card background
-        c.setFillColor(NAVY3)
+        # Card bg — slightly different shade for moderator
+        c.setFillColor(HexColor('#162840') if is_mod else NAVY3)
         c.roundRect(cx, cy, CW, CH, 10, fill=1, stroke=0)
 
-        # Photo (top of card)
+        # Photo
         photo_y = cy + CH - PHOTO_H
         img = prep_image(g['img_path'], CW, PHOTO_H, g.get('v_pct', 25))
-        c.drawImage(img, cx, photo_y, CW, PHOTO_H, mask='auto')
+        c.drawImage(img, cx, photo_y, CW, PHOTO_H)
 
-        # Teal border around photo
-        c.setStrokeColor(TEAL)
+        # Border — amber for moderator, teal for guests
+        border_color = AMBER if is_mod else TEAL
+        c.setStrokeColor(border_color)
         c.setLineWidth(2)
         c.roundRect(cx + 1, photo_y, CW - 2, PHOTO_H, 4, fill=0, stroke=1)
 
-        # Text area — below photo
-        # Available vertical: TEXT_H = 244, from cy to cy+TEXT_H
-
-        # "PANEL GUEST" badge
-        pill(c, cx + 10, cy + TEXT_H - 36, "PANEL GUEST", DGREY, TEAL, fs=10)
-        c.setStrokeColor(TEAL)
+        # Badge
+        badge_label = "MODERATOR" if is_mod else "PANEL GUEST"
+        badge_fill  = AMBER       if is_mod else DGREY
+        badge_text  = NAVY        if is_mod else TEAL
+        pill(c, cx + 8, cy + TEXT_H - 34, badge_label, badge_fill, badge_text, fs=9)
+        c.setStrokeColor(border_color)
         c.setLineWidth(1)
-        bw = len("PANEL GUEST") * 8 + 28
-        c.roundRect(cx + 10, cy + TEXT_H - 36, bw, 28, 6, fill=0, stroke=1)
+        bw = len(badge_label) * 7 + 24
+        c.roundRect(cx + 8, cy + TEXT_H - 34, bw, 26, 5, fill=0, stroke=1)
 
         # Name
         parts = g['name'].split()
         c.setFillColor(WHITE)
-        c.setFont('Ar-B', 22)
-        c.drawString(cx + 10, cy + TEXT_H - 72, parts[0])
-        c.setFillColor(TEAL)
-        c.drawString(cx + 10, cy + TEXT_H - 97, " ".join(parts[1:]))
+        c.setFont('Ar-B', 20)
+        c.drawString(cx + 8, cy + TEXT_H - 66, parts[0])
+        c.setFillColor(border_color)
+        c.drawString(cx + 8, cy + TEXT_H - 89, " ".join(parts[1:]))
 
-        # Teal rule
-        c.setStrokeColor(TEAL)
+        # Rule
+        c.setStrokeColor(border_color)
         c.setLineWidth(1.5)
-        c.line(cx + 10, cy + TEXT_H - 108, cx + CW - 10, cy + TEXT_H - 108)
+        c.line(cx + 8, cy + TEXT_H - 98, cx + CW - 8, cy + TEXT_H - 98)
 
         # Role
-        c.setFillColor(TEAL)
-        c.setFont('Ar-B', 12)
-        role_lines = wrap(g['role'], 28)
-        ry = cy + TEXT_H - 126
+        c.setFillColor(TEAL if not is_mod else AMBER)
+        c.setFont('Ar-B', 11)
+        role_lines = wrap(g['role'], 26)
+        ry = cy + TEXT_H - 114
         for rl in role_lines[:2]:
-            c.drawString(cx + 10, ry, rl)
-            ry -= 16
+            c.drawString(cx + 8, ry, rl)
+            ry -= 15
 
         # Company
         c.setFillColor(LGREY)
-        c.setFont('Ar', 11)
-        c.drawString(cx + 10, ry - 4, g['company'])
+        c.setFont('Ar', 10)
+        c.drawString(cx + 8, ry - 3, g['company'])
 
     c.showPage()
 
@@ -333,6 +338,11 @@ panel_row_slide(c,
     panel_title="Panel Discussion",
     panel_subtitle="QA between Expectations and Reality: what is the industry looking for in 2026?",
     guests=[
+        dict(name="Ecaterina Bordian",
+             role="Project Manager · UI&UX Designer, Moldova QA Community",
+             company="XSoft",
+             img_path=f"{IMAGES}/ecaterina-bordian.jpg",  v_pct=30,
+             moderator=True),
         dict(name="Dumitru Ciorba",
              role="Dean, Faculty of Computers, Informatics and Microelectronics",
              company="Technical University of Moldova",
