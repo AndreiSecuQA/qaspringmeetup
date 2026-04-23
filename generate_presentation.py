@@ -271,74 +271,96 @@ def speaker_slide(c, name, role, company, topic, img_path,
     c.setFillColor(MGREY)
     c.setFont('Ar', 11)
     c.drawString(TX, 22, "QA Spring Meetup 2026  |  25 Aprilie  |  UTM Chisinau")
-    c.setFillColor(TEAL)
-    c.rect(0, 0, W, 4, fill=1, stroke=0)
 
     c.showPage()
 
-# ── SLIDES 7-10: PANEL GUEST ─────────────────────────────────────────────────
-def panel_slide(c, name, role, company, img_path, v_pct=25):
+# ── SLIDE 7: ALL 4 PANEL GUESTS ──────────────────────────────────────────────
+def panel_group_slide(c, guests):
+    """2×2 grid of all panel guests on one slide."""
     bg(c); grid(c)
 
-    PW, PH = 430, 580
-    PX, PY = 60, (H - PH) // 2
-
-    c.setFillColor(NAVY3)
-    c.roundRect(PX - 10, PY - 10, PW + 20, PH + 20, 14, fill=1, stroke=0)
-
-    img = prep_image(img_path, PW, PH, v_pct)
-    c.drawImage(img, PX, PY, PW, PH, mask='auto')
-
-    c.setStrokeColor(TEAL)
-    c.setLineWidth(3)
-    c.roundRect(PX - 2, PY - 2, PW + 4, PH + 4, 8, fill=0, stroke=1)
-
-    TX = 550
-
-    badge(c, TX, H - 88, "PANEL GUEST", DGREY, TEAL)
-    # Teal border on badge
-    c.setStrokeColor(TEAL)
-    c.setLineWidth(1)
-    c.roundRect(TX, H - 88, len("PANEL GUEST") * 9 + 30, 30, 7, fill=0, stroke=1)
-
-    # Name
-    parts = name.split()
-    c.setFillColor(WHITE)
-    c.setFont('Ar-B', 58)
-    if len(parts) >= 2:
-        c.drawString(TX, H - 168, parts[0])
-        c.setFillColor(TEAL)
-        c.drawString(TX, H - 234, " ".join(parts[1:]))
-    else:
-        c.drawString(TX, H - 168, name)
-
-    c.setStrokeColor(TEAL)
-    c.setLineWidth(3)
-    c.line(TX, H - 260, W - 50, H - 260)
-
-    # Role (may be long — wrap it)
-    role_lines = wrap(role, 38)
-    c.setFillColor(TEAL)
-    c.setFont('Ar-B', 22)
-    ry = H - 300
-    for rl in role_lines[:2]:
-        c.drawString(TX, ry, rl)
-        ry -= 30
-
-    # Company
-    c.setFillColor(DGREY)
-    cw = len(company) * 11 + 24
-    c.roundRect(TX, ry - 6, cw, 28, 6, fill=1, stroke=0)
-    c.setFillColor(LGREY)
-    c.setFont('Ar-B', 14)
-    c.drawString(TX + 12, ry + 6, company)
-
-    # Footer
+    # Header
     c.setFillColor(MGREY)
-    c.setFont('Ar', 11)
-    c.drawString(TX, 22, "QA Spring Meetup 2026  |  Panel Discussion")
-    c.setFillColor(TEAL)
-    c.rect(0, 0, W, 4, fill=1, stroke=0)
+    c.setFont('Ar-B', 13)
+    c.drawString(30, H - 34, "PANEL DISCUSSION")
+    c.setStrokeColor(TEAL)
+    c.setLineWidth(2)
+    c.line(30, H - 42, W - 30, H - 42)
+
+    MARGIN = 30
+    GAP    = 16
+    TOP    = H - 55   # 665
+    BOTTOM = 22
+
+    CW = (W - MARGIN * 2 - GAP) // 2   # ~602
+    CH = (TOP - BOTTOM - GAP) // 2      # ~313
+
+    positions = [
+        (MARGIN,          TOP - CH),          # top-left
+        (MARGIN + CW + GAP, TOP - CH),        # top-right
+        (MARGIN,          BOTTOM),             # bottom-left
+        (MARGIN + CW + GAP, BOTTOM),           # bottom-right
+    ]
+
+    for i, g in enumerate(guests):
+        cx, cy = positions[i]
+
+        # Card bg
+        c.setFillColor(NAVY3)
+        c.roundRect(cx, cy, CW, CH, 10, fill=1, stroke=0)
+
+        # Photo
+        PW = int(CW * 0.36)   # ~217
+        PH = CH - 20
+        PX, PY = cx + 10, cy + 10
+
+        img = prep_image(g['img_path'], PW, PH, g.get('v_pct', 25))
+        c.drawImage(img, PX, PY, PW, PH, mask='auto')
+
+        # Teal border on photo
+        c.setStrokeColor(TEAL)
+        c.setLineWidth(2)
+        c.roundRect(PX - 1, PY - 1, PW + 2, PH + 2, 4, fill=0, stroke=1)
+
+        # Text area
+        TX = cx + PW + 22
+
+        # Badge
+        badge(c, TX, cy + CH - 36, "PANEL GUEST", DGREY, TEAL)
+        c.setStrokeColor(TEAL)
+        c.setLineWidth(1)
+        c.roundRect(TX, cy + CH - 36, len("PANEL GUEST") * 9 + 30, 30, 6, fill=0, stroke=1)
+
+        # Name
+        parts = g['name'].split()
+        c.setFillColor(WHITE)
+        c.setFont('Ar-B', 30)
+        c.drawString(TX, cy + CH - 76, parts[0])
+        if len(parts) > 1:
+            c.setFillColor(TEAL)
+            c.drawString(TX, cy + CH - 112, ' '.join(parts[1:]))
+
+        # Teal rule
+        c.setStrokeColor(TEAL)
+        c.setLineWidth(2)
+        c.line(TX, cy + CH - 122, cx + CW - 10, cy + CH - 122)
+
+        # Role
+        c.setFillColor(TEAL)
+        c.setFont('Ar-B', 14)
+        role_lines = wrap(g['role'], 32)
+        ry = cy + CH - 144
+        for rl in role_lines[:2]:
+            c.drawString(TX, ry, rl)
+            ry -= 19
+
+        # Company chip
+        c.setFillColor(DGREY)
+        cw_chip = len(g['company']) * 9 + 20
+        c.roundRect(TX, ry - 8, cw_chip, 24, 5, fill=1, stroke=0)
+        c.setFillColor(LGREY)
+        c.setFont('Ar', 12)
+        c.drawString(TX + 10, ry, g['company'])
 
     c.showPage()
 
@@ -378,33 +400,20 @@ section_slide(c, "4", "Panel", "Discussion",
               "QA between Expectations and Reality: ce cauta industria in 2026?",
               color=TEAL)
 
-panel_slide(c,
-    name="Dumitru Ciorba",
-    role="Decan, FCIM",
-    company="Universitatea Tehnica a Moldovei",
-    img_path=f"{IMAGES}/dumitru-ciorba.jpg",
-    v_pct=20)
-
-panel_slide(c,
-    name="Eugen Valah",
-    role="QA Engineer",
-    company="Planable Moldova",
-    img_path=f"{IMAGES}/eugen-valah.jpg",
-    v_pct=18)
-
-panel_slide(c,
-    name="Ecaterina Artemiev",
-    role="Application Consultant · Presedinte, Tech Women Moldova",
-    company="Stefanini EMEA",
-    img_path=f"{IMAGES}/artemii-ecaterina.jpg",
-    v_pct=15)
-
-panel_slide(c,
-    name="Marianna Paladii",
-    role="Consilier Recrutare",
-    company="MICB (Moldindconbank)",
-    img_path=f"{IMAGES}/marianna-paladii.jpg",
-    v_pct=22)
+panel_group_slide(c, [
+    dict(name="Dumitru Ciorba",    role="Decan, FCIM",
+         company="Univ. Tehnica a Moldovei",
+         img_path=f"{IMAGES}/dumitru-ciorba.jpg",     v_pct=20),
+    dict(name="Eugen Valah",       role="QA Engineer",
+         company="Planable Moldova",
+         img_path=f"{IMAGES}/eugen-valah.jpg",        v_pct=18),
+    dict(name="Ecaterina Artemiev",role="Application Consultant · Presedinte, Tech Women Moldova",
+         company="Stefanini EMEA",
+         img_path=f"{IMAGES}/artemii-ecaterina.jpg",  v_pct=15),
+    dict(name="Marianna Paladii",  role="Consilier Recrutare",
+         company="MICB (Moldindconbank)",
+         img_path=f"{IMAGES}/marianna-paladii.jpg",   v_pct=22),
+])
 
 c.save()
 print(f"✅  PDF saved → {OUTPUT}")
