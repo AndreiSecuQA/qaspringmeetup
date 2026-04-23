@@ -84,55 +84,71 @@ def badge(c, x, y, label, color=None, text_color=None):
     c.setFont('Ar-B', 12)
     c.drawString(x + 14, y + 9, label)
 
-# ── SLIDE 1: COVER ───────────────────────────────────────────────────────────
+# ── SLIDE 1: WELCOME ─────────────────────────────────────────────────────────
 def cover_slide(c):
     bg(c); grid(c)
 
-    # Right orb
+    # Large decorative orbs
     c.setFillColor(HexColor('#001830'))
-    c.circle(1080, 420, 340, fill=1, stroke=0)
-    c.setStrokeColor(HexColor('#00c8a018'))
+    c.circle(1100, 360, 380, fill=1, stroke=0)
+    c.setStrokeColor(HexColor('#00c8a020'))
     c.setLineWidth(2)
-    c.circle(1080, 420, 290, fill=0, stroke=1)
+    c.circle(1100, 360, 320, fill=0, stroke=1)
     c.setStrokeColor(HexColor('#00c8a010'))
-    c.circle(1080, 420, 240, fill=0, stroke=1)
+    c.circle(1100, 360, 260, fill=0, stroke=1)
 
-    # Left accent line
+    # Small orb bottom-left
+    c.setFillColor(HexColor('#060f1e'))
+    c.circle(80, 80, 140, fill=1, stroke=0)
+    c.setStrokeColor(HexColor('#00c8a015'))
+    c.setLineWidth(1.5)
+    c.circle(80, 80, 110, fill=0, stroke=1)
+
+    # "Bine ati venit!" — welcome line
+    c.setFillColor(TEAL)
+    c.setFont('Ar-B', 26)
+    c.drawString(60, H - 58, "Bine ati venit!")
+
+    # Teal accent line
     c.setStrokeColor(TEAL)
     c.setLineWidth(3)
-    c.line(60, H - 50, 360, H - 50)
+    c.line(60, H - 72, 420, H - 72)
 
-    # Badge
-    badge(c, 60, H - 96, "SPRING MEETUP 2026")
+    # Welcome to
+    c.setFillColor(LGREY)
+    c.setFont('Ar', 28)
+    c.drawString(60, H - 126, "Welcome to")
 
-    # Title
+    # Event name — big
     c.setFillColor(WHITE)
-    c.setFont('Ar-B', 90)
-    c.drawString(60, H - 210, "QA Spring")
+    c.setFont('Ar-B', 96)
+    c.drawString(60, H - 234, "QA Spring")
     c.setFillColor(TEAL)
-    c.setFont('Ar-B', 90)
-    c.drawString(60, H - 312, "Meetup")
+    c.setFont('Ar-B', 96)
+    c.drawString(60, H - 342, "Meetup")
 
     # Subtitle
     c.setFillColor(LGREY)
-    c.setFont('Ar', 22)
-    c.drawString(60, H - 370, "QA between expectations and reality:")
-    c.drawString(60, H - 398, "the ideal candidate in 2026")
+    c.setFont('Ar', 21)
+    c.drawString(60, H - 396, "QA between expectations and reality:")
+    c.setFillColor(WHITE)
+    c.setFont('Ar-B', 21)
+    c.drawString(60, H - 422, "the ideal candidate in 2026")
 
     # Divider
     c.setStrokeColor(DGREY)
     c.setLineWidth(1)
-    c.line(60, H - 428, 680, H - 428)
+    c.line(60, H - 450, 700, H - 450)
 
     # Date & location
     c.setFillColor(TEAL)
-    c.setFont('Ar-B', 20)
-    c.drawString(60, H - 462, "25 Aprilie 2026   |   11:00 – 12:30")
+    c.setFont('Ar-B', 19)
+    c.drawString(60, H - 482, "25 Aprilie 2026   |   11:00 – 12:30")
     c.setFillColor(LGREY)
-    c.setFont('Ar', 18)
-    c.drawString(60, H - 490, "UTM — FCIM Aula 3-3, Chisinau, Moldova")
+    c.setFont('Ar', 17)
+    c.drawString(60, H - 508, "UTM — FCIM Aula 3-3, Chisinau, Moldova")
 
-    # Bottom bar
+    # Bottom teal bar (keep on cover/section slides only)
     c.setFillColor(TEAL)
     c.rect(0, 0, W, 4, fill=1, stroke=0)
 
