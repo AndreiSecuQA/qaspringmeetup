@@ -49,16 +49,8 @@ def blend_dark_bg(img, bg_rgb=(17, 34, 64), threshold=38, blur=6):
     return Image.composite(navy_layer, img, mask)
 
 def prep_image(path, tw, th, v_pct=50, fix_dark_bg=False):
-    img = Image.open(path)
-    # If image has transparency (e.g. cut-out PNG), composite onto navy card bg first
-    if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
-        navy_bg = Image.new('RGB', img.size, (17, 34, 64))  # NAVY3 #112240
-        if img.mode != 'RGBA':
-            img = img.convert('RGBA')
-        navy_bg.paste(img, mask=img.split()[3])
-        img = navy_bg
-    else:
-        img = img.convert('RGB')
+    # Convert straight to RGB — transparent PNG areas become black, dark JPEGs stay dark
+    img = Image.open(path).convert('RGB')
     iw, ih = img.size
     scale = max(tw / iw, th / ih)
     nw, nh = int(iw * scale), int(ih * scale)
@@ -66,8 +58,6 @@ def prep_image(path, tw, th, v_pct=50, fix_dark_bg=False):
     left = (nw - tw) // 2
     top  = int(max(0, nh - th) * v_pct / 100)
     img  = img.crop((left, top, left + tw, top + th))
-    if fix_dark_bg:
-        img = blend_dark_bg(img)
     buf  = io.BytesIO()
     img.save(buf, format='JPEG', quality=95)
     buf.seek(0)
@@ -325,7 +315,7 @@ speaker_slide(c,
     company="Amdaris",
     topic="The Quality Orchestrator: How to become the QA leader companies need in the AI era",
     img_path=f"{IMAGES}/daniela-popov.jpg",
-    badge_label="SPEAKER", v_pct=20, fix_dark_bg=True)
+    badge_label="SPEAKER", v_pct=20)
 
 speaker_slide(c,
     name="Maxim Anastasiev",
@@ -352,7 +342,7 @@ panel_row_slide(c,
              role="Panel Moderator",
              company="Moldova QA Community · XSoft",
              img_path=f"{IMAGES}/ecaterina-bordian.jpg",  v_pct=18,
-             moderator=True, fix_dark_bg=True),
+             moderator=True),
         dict(name="Dumitru Ciorba",
              role="Decan, Facultatea Calculatoare, Informatică și Microelectronică",
              company="Technical University of Moldova",
