@@ -7,7 +7,7 @@ from reportlab.lib.colors import HexColor
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from PIL import Image
+from PIL import Image, ImageFilter, ImageChops
 
 # ── FONTS ────────────────────────────────────────────────────────────────────
 FONT_DIR = "/System/Library/Fonts/Supplemental"
@@ -33,8 +33,32 @@ MGREY = HexColor('#4a6080')
 DGREY = HexColor('#1e3a5c')
 
 # ── HELPERS ───────────────────────────────────────────────────────────────────
-def prep_image(path, tw, th, v_pct=50):
-    img = Image.open(path).convert('RGB')
+def blend_dark_bg(img, bg_rgb=(17, 34, 64), threshold=38, blur=6):
+    """Replace near-black background pixels with the card's navy color,
+    then smooth the edge with a blur so the transition is natural."""
+    r, g, b = img.split()
+    # Mask: white where pixel is very dark (background), black where subject
+    dark_r = r.point(lambda x: 255 if x < threshold else 0)
+    dark_g = g.point(lambda x: 255 if x < threshold else 0)
+    dark_b = b.point(lambda x: 255 if x < threshold else 0)
+    mask = ImageChops.multiply(dark_r, ImageChops.multiply(dark_g, dark_b))
+    # Soften the mask edge for a smooth blend
+    mask = mask.filter(ImageFilter.GaussianBlur(radius=blur))
+    navy_layer = Image.new('RGB', img.size, bg_rgb)
+    # composite: where mask=white → navy; where mask=black → original photo
+    return Image.composite(navy_layer, img, mask)
+
+def prep_image(path, tw, th, v_pct=50, fix_dark_bg=False):
+    img = Image.open(path)
+    # If image has transparency (e.g. cut-out PNG), composite onto navy card bg first
+    if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
+        navy_bg = Image.new('RGB', img.size, (17, 34, 64))  # NAVY3 #112240
+        if img.mode != 'RGBA':
+            img = img.convert('RGBA')
+        navy_bg.paste(img, mask=img.split()[3])
+        img = navy_bg
+    else:
+        img = img.convert('RGB')
     iw, ih = img.size
     scale = max(tw / iw, th / ih)
     nw, nh = int(iw * scale), int(ih * scale)
@@ -42,6 +66,8 @@ def prep_image(path, tw, th, v_pct=50):
     left = (nw - tw) // 2
     top  = int(max(0, nh - th) * v_pct / 100)
     img  = img.crop((left, top, left + tw, top + th))
+    if fix_dark_bg:
+        img = blend_dark_bg(img)
     buf  = io.BytesIO()
     img.save(buf, format='JPEG', quality=95)
     buf.seek(0)
@@ -147,7 +173,7 @@ def cover_slide(c):
 
 # ── SLIDES 2–4: SPEAKER ──────────────────────────────────────────────────────
 def speaker_slide(c, name, role, company, topic, img_path,
-                  badge_label="SPEAKER", badge_color=None, v_pct=30):
+                  badge_label="SPEAKER", badge_color=None, v_pct=30, fix_dark_bg=False):
     badge_color = badge_color or TEAL
     bg(c); grid(c)
 
@@ -156,7 +182,7 @@ def speaker_slide(c, name, role, company, topic, img_path,
 
     c.setFillColor(NAVY3)
     c.roundRect(PX - 10, PY - 10, PW + 20, PH + 20, 14, fill=1, stroke=0)
-    img = prep_image(img_path, PW, PH, v_pct)
+    img = prep_image(img_path, PW, PH, v_pct, fix_dark_bg=fix_dark_bg)
     c.drawImage(img, PX, PY, PW, PH)          # no mask — fixes rendering in all viewers
     c.setStrokeColor(TEAL)
     c.setLineWidth(3)
@@ -254,7 +280,7 @@ def panel_row_slide(c, panel_title, panel_subtitle, guests):
 
         # Photo
         photo_y = cy + CH - PHOTO_H
-        img = prep_image(g['img_path'], CW, PHOTO_H, g.get('v_pct', 25))
+        img = prep_image(g['img_path'], CW, PHOTO_H, g.get('v_pct', 25), fix_dark_bg=g.get('fix_dark_bg', False))
         c.drawImage(img, cx, photo_y, CW, PHOTO_H)
 
         # Border — amber for moderator, teal for guests
@@ -315,7 +341,7 @@ speaker_slide(c,
     company="Amdaris",
     topic="The Quality Orchestrator: How to become the QA leader companies need in the AI era",
     img_path=f"{IMAGES}/daniela-popov.jpg",
-    badge_label="SPEAKER", v_pct=20)
+    badge_label="SPEAKER", v_pct=20, fix_dark_bg=True)
 
 speaker_slide(c,
     name="Maxim Anastasiev",
@@ -342,11 +368,11 @@ panel_row_slide(c,
              role="Panel Moderator",
              company="Moldova QA Community · XSoft",
              img_path=f"{IMAGES}/ecaterina-bordian.jpg",  v_pct=18,
-             moderator=True),
+             moderator=True, fix_dark_bg=True),
         dict(name="Dumitru Ciorba",
              role="Dean, Faculty of Computers, Informatics and Microelectronics",
              company="Technical University of Moldova",
-             img_path=f"{IMAGES}/dumitru-ciorba.jpg",     v_pct=32),
+             img_path=f"{IMAGES}/dumitru-ciorba-new.png", v_pct=20),
         dict(name="Eugen Valah",
              role="QA Engineer",
              company="Planable Moldova",
@@ -354,7 +380,7 @@ panel_row_slide(c,
         dict(name="Ecaterina Artemiev",
              role="Application Consultant · President, Tech Women Moldova",
              company="Stefanini EMEA",
-             img_path=f"{IMAGES}/artemii-ecaterina.jpg",  v_pct=5),
+             img_path=f"{IMAGES}/ecaterina-artemiev-new.png", v_pct=5),
         dict(name="Marianna Paladii",
              role="Recruitment Advisor",
              company="MICB (Moldindconbank)",
