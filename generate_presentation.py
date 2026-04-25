@@ -139,20 +139,14 @@ def transition_slide(c):
 
 # ── THANK YOU SLIDE ───────────────────────────────────────────────────────────
 def thank_you_slide(c, qr_path):
+    # ── Left half: dark navy (same brand style) ──
     bg(c); grid(c)
 
-    # Decorative orbs
-    c.setFillColor(HexColor('#001830'))
-    c.circle(1100, 360, 350, fill=1, stroke=0)
-    c.setStrokeColor(HexColor('#00c8a020'))
-    c.setLineWidth(2)
-    c.circle(1100, 360, 300, fill=0, stroke=1)
-    c.setStrokeColor(HexColor('#00c8a010'))
-    c.circle(1100, 360, 250, fill=0, stroke=1)
+    # Decorative orb (left side only)
     c.setFillColor(HexColor('#060f1e'))
     c.circle(60, 60, 120, fill=1, stroke=0)
 
-    # "Thank you!" label top
+    # "Thank you!" label
     c.setFillColor(TEAL)
     c.setFont('Ar-B', 30)
     c.drawString(60, H - 88, 'Thank you!')
@@ -160,7 +154,7 @@ def thank_you_slide(c, qr_path):
     c.setLineWidth(3)
     c.line(60, H - 106, 290, H - 106)
 
-    # Big white message
+    # Big text
     c.setFillColor(WHITE)
     c.setFont('Ar-B', 90)
     c.drawString(60, H - 218, 'See you')
@@ -171,41 +165,48 @@ def thank_you_slide(c, qr_path):
     # Subtitle
     c.setFillColor(LGREY)
     c.setFont('Ar', 22)
-    c.drawString(60, H - 384, "We're glad you joined us today.")
+    c.drawString(60, H - 390, "We're glad you joined us today.")
 
     # Divider
     c.setStrokeColor(DGREY)
     c.setLineWidth(1)
-    c.line(60, H - 412, 660, H - 412)
+    c.line(60, H - 418, 580, H - 418)
 
     # Handle
     c.setFillColor(MGREY)
     c.setFont('Ar', 17)
-    c.drawString(60, H - 440, '@qacommunitymoldova')
+    c.drawString(60, H - 446, '@qacommunitymoldova')
 
-    # ── QR Code (right side) ──
-    QR = 260
-    QR_X = 820
-    QR_Y = H // 2 - QR // 2 - 30
+    # Bottom teal bar (only on left half so it doesn't cross white)
+    c.setFillColor(TEAL)
+    c.rect(0, 0, W // 2, 4, fill=1, stroke=0)
 
-    # White card behind QR so it's scannable
-    pad = 18
+    # ── Right half: pure white ──
     c.setFillColor(WHITE)
-    c.roundRect(QR_X - pad, QR_Y - pad - 40, QR + pad * 2, QR + pad * 2 + 40, 14, fill=1, stroke=0)
+    c.rect(W // 2, 0, W // 2, H, fill=1, stroke=0)
+
+    # QR code centered in white half
+    QR = 300
+    QR_X = W // 2 + (W // 2 - QR) // 2
+    QR_Y = H // 2 - QR // 2 + 20
 
     qr_img = ImageReader(qr_path)
     c.drawImage(qr_img, QR_X, QR_Y, QR, QR)
 
-    # "Scan to follow us" label inside white card
+    # "Scan to follow us" below QR
     c.setFillColor(NAVY)
-    c.setFont('Ar-B', 14)
+    c.setFont('Ar-B', 16)
     lbl = 'Scan to follow us'
-    lbl_w = c.stringWidth(lbl, 'Ar-B', 14)
-    c.drawString(QR_X + QR // 2 - lbl_w // 2, QR_Y - 26, lbl)
+    lbl_w = c.stringWidth(lbl, 'Ar-B', 16)
+    c.drawString(QR_X + QR // 2 - lbl_w // 2, QR_Y - 28, lbl)
 
-    # Bottom bar
-    c.setFillColor(TEAL)
-    c.rect(0, 0, W, 4, fill=1, stroke=0)
+    # "@qacommunitymoldova" below that
+    c.setFillColor(HexColor('#4a6080'))
+    c.setFont('Ar', 13)
+    handle = '@qacommunitymoldova'
+    h_w = c.stringWidth(handle, 'Ar', 13)
+    c.drawString(QR_X + QR // 2 - h_w // 2, QR_Y - 46, handle)
+
     c.showPage()
 
 # ── SLIDE 1: WELCOME ─────────────────────────────────────────────────────────
@@ -420,7 +421,6 @@ c = canvas.Canvas(OUTPUT, pagesize=(W, H))
 
 # 1. Welcome
 cover_slide(c)
-transition_slide(c)
 
 # 2. Speaker — Daniela
 speaker_slide(c,
@@ -430,7 +430,6 @@ speaker_slide(c,
     topic="The Quality Orchestrator: How to become the QA leader companies need in the AI era",
     img_path=f"{IMAGES}/daniela-popov.jpg",
     badge_label="SPEAKER", v_pct=20)
-transition_slide(c)
 
 # 3. Speaker — Maxim
 speaker_slide(c,
@@ -440,7 +439,6 @@ speaker_slide(c,
     topic="QA in the Fintech World: When Security Matters More Than Speed",
     img_path=f"{IMAGES}/maxim-anastasiev.jpg",
     badge_label="SPEAKER", v_pct=15)
-transition_slide(c)
 
 # 4. Workshop — Alex
 speaker_slide(c,
@@ -450,7 +448,6 @@ speaker_slide(c,
     topic="Skill-up: Live Demo & Modern QA Tooling — hands-on with modern testing tools",
     img_path=f"{IMAGES}/alex-ursu.jpg",
     badge_label="WORKSHOP", badge_color=AMBER, v_pct=15)
-transition_slide(c)
 
 # 5. Panel — all 5 in one horizontal row
 panel_row_slide(c,
@@ -484,4 +481,4 @@ panel_row_slide(c,
 thank_you_slide(c, f"{IMAGES}/qr-code.png")
 
 c.save()
-print(f"✅  PDF saved → {OUTPUT}  (10 slides)")
+print(f"✅  PDF saved → {OUTPUT}  (6 slides)")
