@@ -123,49 +123,31 @@ def cover_slide(c):
     c.setLineWidth(1.5)
     c.circle(60, 60, 100, fill=0, stroke=1)
 
-    # "Welcome!" — large teal
-    c.setFillColor(TEAL)
-    c.setFont('Ar-B', 32)
-    c.drawString(60, H - 62, "Welcome!")
+    # "Welcome to" label
+    c.setFillColor(LGREY)
+    c.setFont('Ar', 30)
+    c.drawString(60, H - 88, "Welcome to")
 
     # Teal accent line
     c.setStrokeColor(TEAL)
     c.setLineWidth(3)
-    c.line(60, H - 76, 440, H - 76)
-
-    # "Welcome to" label
-    c.setFillColor(LGREY)
-    c.setFont('Ar', 28)
-    c.drawString(60, H - 130, "Welcome to")
+    c.line(60, H - 106, 290, H - 106)
 
     # Event name
     c.setFillColor(WHITE)
-    c.setFont('Ar-B', 96)
-    c.drawString(60, H - 238, "QA Spring")
+    c.setFont('Ar-B', 100)
+    c.drawString(60, H - 224, "QA Spring")
     c.setFillColor(TEAL)
-    c.setFont('Ar-B', 96)
-    c.drawString(60, H - 346, "Meetup")
+    c.setFont('Ar-B', 100)
+    c.drawString(60, H - 342, "Meetup")
 
     # Subtitle
     c.setFillColor(LGREY)
-    c.setFont('Ar', 21)
+    c.setFont('Ar', 22)
     c.drawString(60, H - 400, "QA between expectations and reality:")
     c.setFillColor(WHITE)
-    c.setFont('Ar-B', 21)
-    c.drawString(60, H - 426, "the ideal candidate in 2026")
-
-    # Divider
-    c.setStrokeColor(DGREY)
-    c.setLineWidth(1)
-    c.line(60, H - 454, 700, H - 454)
-
-    # Date & location
-    c.setFillColor(TEAL)
-    c.setFont('Ar-B', 19)
-    c.drawString(60, H - 486, "April 25, 2026   |   11:00 – 12:30")
-    c.setFillColor(LGREY)
-    c.setFont('Ar', 17)
-    c.drawString(60, H - 512, "UTM — FCIM Hall 3-3, Chisinau, Moldova")
+    c.setFont('Ar-B', 22)
+    c.drawString(60, H - 428, "the ideal candidate in 2026")
 
     c.setFillColor(TEAL)
     c.rect(0, 0, W, 4, fill=1, stroke=0)
@@ -194,30 +176,32 @@ def speaker_slide(c, name, role, company, topic, img_path,
     pill(c, TX, H - 90, badge_label, badge_color,
          NAVY if badge_color == TEAL else WHITE)
 
-    # Name — bigger
+    # Name — all white
     parts = name.split()
     c.setFillColor(WHITE)
     c.setFont('Ar-B', 80)
     c.drawString(TX, H - 192, parts[0])
-    c.setFillColor(TEAL)
     c.drawString(TX, H - 282, " ".join(parts[1:]))
 
-    # Role — bigger
+    # Thin separator line under name
+    c.setStrokeColor(HexColor('#1e3a5c'))
+    c.setLineWidth(1)
+    c.line(TX, H - 298, W - 50, H - 298)
+
+    # Role
     c.setFillColor(TEAL)
-    c.setFont('Ar-B', 32)
+    c.setFont('Ar-B', 30)
     c.drawString(TX, H - 334, role)
 
-    # Company chip
-    c.setFillColor(DGREY)
-    c.roundRect(TX, H - 382, len(company) * 13 + 26, 30, 6, fill=1, stroke=0)
-    c.setFillColor(LGREY)
-    c.setFont('Ar-B', 17)
-    c.drawString(TX + 13, H - 368, company)
+    # Company — amber text, no chip
+    c.setFillColor(AMBER)
+    c.setFont('Ar-B', 22)
+    c.drawString(TX, H - 370, company)
 
     # Divider
     c.setStrokeColor(DGREY)
     c.setLineWidth(1)
-    c.line(TX, H - 410, W - 50, H - 410)
+    c.line(TX, H - 400, W - 50, H - 400)
 
     # Topic label + text — bigger
     c.setFillColor(MGREY)
@@ -314,12 +298,12 @@ def panel_row_slide(c, panel_title, panel_subtitle, guests):
 
         # Role
         c.setFillColor(TEAL if not is_mod else AMBER)
-        c.setFont('Ar-B', 11)
-        role_lines = wrap(g['role'], 26)
+        c.setFont('Ar-B', 10)
+        role_lines = wrap(g['role'], 30)
         ry = cy + TEXT_H - 114
-        for rl in role_lines[:2]:
+        for rl in role_lines[:3]:
             c.drawString(cx + 8, ry, rl)
-            ry -= 15
+            ry -= 13
 
         # Company
         c.setFillColor(LGREY)
@@ -370,7 +354,7 @@ panel_row_slide(c,
              img_path=f"{IMAGES}/ecaterina-bordian.jpg",  v_pct=18,
              moderator=True, fix_dark_bg=True),
         dict(name="Dumitru Ciorba",
-             role="Dean, Faculty of Computers, Informatics and Microelectronics",
+             role="Decan, Facultatea Calculatoare, Informatică și Microelectronică",
              company="Technical University of Moldova",
              img_path=f"{IMAGES}/dumitru-ciorba-new.png", v_pct=20),
         dict(name="Eugen Valah",
@@ -382,9 +366,9 @@ panel_row_slide(c,
              company="Stefanini EMEA",
              img_path=f"{IMAGES}/ecaterina-artemiev-new.png", v_pct=5),
         dict(name="Marianna Paladii",
-             role="Recruitment Advisor",
+             role="Recruitment Consultant",
              company="MICB (Moldindconbank)",
-             img_path=f"{IMAGES}/marianna-paladii.jpg",   v_pct=8),
+             img_path=f"{IMAGES}/marianna-paladii-new.png", v_pct=10),
     ])
 
 c.save()
