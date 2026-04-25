@@ -95,6 +95,119 @@ def pill(c, x, y, label, fill_color, text_color, fs=12):
     c.setFont('Ar-B', fs)
     c.drawString(x + 14, y + 8, label)
 
+# ── TRANSITION SLIDE ─────────────────────────────────────────────────────────
+def transition_slide(c):
+    bg(c); grid(c)
+
+    # Large centered dark orb
+    c.setFillColor(HexColor('#001830'))
+    c.circle(W // 2, H // 2, 300, fill=1, stroke=0)
+    c.setStrokeColor(HexColor('#00c8a030'))
+    c.setLineWidth(2)
+    c.circle(W // 2, H // 2, 260, fill=0, stroke=1)
+    c.setStrokeColor(HexColor('#00c8a015'))
+    c.circle(W // 2, H // 2, 220, fill=0, stroke=1)
+
+    # Corner orbs
+    c.setFillColor(HexColor('#060f1e'))
+    c.circle(0, 0, 100, fill=1, stroke=0)
+    c.circle(W, H, 100, fill=1, stroke=0)
+
+    # QA monogram centered
+    c.setFillColor(TEAL)
+    c.setFont('Ar-B', 90)
+    qa_w = c.stringWidth('QA', 'Ar-B', 90)
+    c.drawString(W // 2 - qa_w // 2, H // 2 + 10, 'QA')
+
+    # "Spring Meetup 2026" below
+    c.setFillColor(LGREY)
+    c.setFont('Ar', 20)
+    sub = 'Spring Meetup  ·  2026'
+    sub_w = c.stringWidth(sub, 'Ar', 20)
+    c.drawString(W // 2 - sub_w // 2, H // 2 - 26, sub)
+
+    # Horizontal accent lines either side of orb
+    c.setStrokeColor(TEAL)
+    c.setLineWidth(1.5)
+    c.line(40, H // 2, W // 2 - 230, H // 2)
+    c.line(W // 2 + 230, H // 2, W - 40, H // 2)
+
+    # Bottom bar
+    c.setFillColor(TEAL)
+    c.rect(0, 0, W, 4, fill=1, stroke=0)
+    c.showPage()
+
+# ── THANK YOU SLIDE ───────────────────────────────────────────────────────────
+def thank_you_slide(c, qr_path):
+    bg(c); grid(c)
+
+    # Decorative orbs
+    c.setFillColor(HexColor('#001830'))
+    c.circle(1100, 360, 350, fill=1, stroke=0)
+    c.setStrokeColor(HexColor('#00c8a020'))
+    c.setLineWidth(2)
+    c.circle(1100, 360, 300, fill=0, stroke=1)
+    c.setStrokeColor(HexColor('#00c8a010'))
+    c.circle(1100, 360, 250, fill=0, stroke=1)
+    c.setFillColor(HexColor('#060f1e'))
+    c.circle(60, 60, 120, fill=1, stroke=0)
+
+    # "Thank you!" label top
+    c.setFillColor(TEAL)
+    c.setFont('Ar-B', 30)
+    c.drawString(60, H - 88, 'Thank you!')
+    c.setStrokeColor(TEAL)
+    c.setLineWidth(3)
+    c.line(60, H - 106, 290, H - 106)
+
+    # Big white message
+    c.setFillColor(WHITE)
+    c.setFont('Ar-B', 90)
+    c.drawString(60, H - 218, 'See you')
+    c.setFillColor(TEAL)
+    c.setFont('Ar-B', 90)
+    c.drawString(60, H - 326, 'next time!')
+
+    # Subtitle
+    c.setFillColor(LGREY)
+    c.setFont('Ar', 22)
+    c.drawString(60, H - 384, "We're glad you joined us today.")
+
+    # Divider
+    c.setStrokeColor(DGREY)
+    c.setLineWidth(1)
+    c.line(60, H - 412, 660, H - 412)
+
+    # Handle
+    c.setFillColor(MGREY)
+    c.setFont('Ar', 17)
+    c.drawString(60, H - 440, '@qacommunitymoldova')
+
+    # ── QR Code (right side) ──
+    QR = 260
+    QR_X = 820
+    QR_Y = H // 2 - QR // 2 - 30
+
+    # White card behind QR so it's scannable
+    pad = 18
+    c.setFillColor(WHITE)
+    c.roundRect(QR_X - pad, QR_Y - pad - 40, QR + pad * 2, QR + pad * 2 + 40, 14, fill=1, stroke=0)
+
+    qr_img = ImageReader(qr_path)
+    c.drawImage(qr_img, QR_X, QR_Y, QR, QR)
+
+    # "Scan to follow us" label inside white card
+    c.setFillColor(NAVY)
+    c.setFont('Ar-B', 14)
+    lbl = 'Scan to follow us'
+    lbl_w = c.stringWidth(lbl, 'Ar-B', 14)
+    c.drawString(QR_X + QR // 2 - lbl_w // 2, QR_Y - 26, lbl)
+
+    # Bottom bar
+    c.setFillColor(TEAL)
+    c.rect(0, 0, W, 4, fill=1, stroke=0)
+    c.showPage()
+
 # ── SLIDE 1: WELCOME ─────────────────────────────────────────────────────────
 def cover_slide(c):
     bg(c); grid(c)
@@ -307,8 +420,9 @@ c = canvas.Canvas(OUTPUT, pagesize=(W, H))
 
 # 1. Welcome
 cover_slide(c)
+transition_slide(c)
 
-# 2–4. Speakers
+# 2. Speaker — Daniela
 speaker_slide(c,
     name="Daniela Popov",
     role="Recruitment Manager",
@@ -316,7 +430,9 @@ speaker_slide(c,
     topic="The Quality Orchestrator: How to become the QA leader companies need in the AI era",
     img_path=f"{IMAGES}/daniela-popov.jpg",
     badge_label="SPEAKER", v_pct=20)
+transition_slide(c)
 
+# 3. Speaker — Maxim
 speaker_slide(c,
     name="Maxim Anastasiev",
     role="Head of Quality Assurance",
@@ -324,7 +440,9 @@ speaker_slide(c,
     topic="QA in the Fintech World: When Security Matters More Than Speed",
     img_path=f"{IMAGES}/maxim-anastasiev.jpg",
     badge_label="SPEAKER", v_pct=15)
+transition_slide(c)
 
+# 4. Workshop — Alex
 speaker_slide(c,
     name="Alex Ursu",
     role="QA Lead",
@@ -332,8 +450,9 @@ speaker_slide(c,
     topic="Skill-up: Live Demo & Modern QA Tooling — hands-on with modern testing tools",
     img_path=f"{IMAGES}/alex-ursu.jpg",
     badge_label="WORKSHOP", badge_color=AMBER, v_pct=15)
+transition_slide(c)
 
-# 5. Panel — all 4 in one horizontal row
+# 5. Panel — all 5 in one horizontal row
 panel_row_slide(c,
     panel_title="Panel Discussion",
     panel_subtitle="QA between Expectations and Reality: what is the industry looking for in 2026?",
@@ -361,5 +480,8 @@ panel_row_slide(c,
              img_path=f"{IMAGES}/marianna-paladii-new.png", v_pct=10),
     ])
 
+# 6. Thank You
+thank_you_slide(c, f"{IMAGES}/qr-code.png")
+
 c.save()
-print(f"✅  PDF saved → {OUTPUT}  ({5} slides)")
+print(f"✅  PDF saved → {OUTPUT}  (10 slides)")
